@@ -37,6 +37,7 @@ gem 'sunspot_solr'
 gem 'net-ssh', '2.9.2'
 gem 'fog-google', '0.0.9'
 gem 'minitest', '5.8.1'
+gem 'font-awesome-rails'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

@@ -1,0 +1,142 @@
+<% @tab_title = "主页" %>
+<% @body_class = "landing" %>	
+<% @header_class = "alt" %>
+
+			<!-- Banner -->
+				<section id="banner">
+					<h2>Leads</h2>
+					<p>A Proactive Specialization Headhunting Team<br><span>一个选择专注的猎头团队<span></p><br>
+					<ul class="actions">
+						<!-- <li><a href="#" class="button special">注册</a></li> -->
+						<li><%= link_to '合作', business_path, class: "button" %></li>
+					</ul>
+				</section>
+
+			<!-- Main -->
+				<section id="main" class="container landing">
+
+					<section class="box special">
+						<header class="major">
+							<h2>你和项目的准时发布
+							<br /></h2>
+							<h2>只有一个 leads 的距离</h2>
+							<p>提前一个月全员到岗，意味着你节省了一个月的公司费用，比对手多一个月的竞跑时间</p>
+						</header>
+						<span class="image featured"><%= image_tag("pic01.jpg", alt: "") %></span>
+					</section>
+
+					<section class="box special features">
+						<div class="features-row">
+							<section>
+								<span class="icon major fa-bolt accent2"></span>
+								<h3>快速行动</h3>
+								<p>确认需求后，一个自然周内即有第一批人才推荐，实时沟通，更快反应。</p>
+							</section>
+							<section>
+								<span class="icon major fa-area-chart accent3"></span>
+								<h3>PS 模式</h3>
+								<p>专注于互联网领域，高层管理，高级技术人才。更加专业的人才储备。</p>
+							</section>
+						</div>
+						<div class="features-row">
+							<section>
+								<span class="icon major fa-cloud accent4"></span>
+								<h3>专业咨询</h3>
+								<p>分析岗位胜任力模型，给出第三方寻访建议，对候选人评测，初筛后推荐，背景调查，薪资协商，全套解决方案。</p>
+							</section>
+							<section>
+								<span class="icon major fa-lock accent5"></span>
+								<h3>双向保密</h3>
+								<p>敏感信息均经加密处理，团队的第一原则是保护雇主及候选人的信息安全，让大家可放心合作。</p>
+							</section>
+						</div>
+					</section>
+
+					<div class="row p_left">
+						<div class="6u 12u(narrower)">
+
+							<section class="box special">
+								<span class="image featured"><%= image_tag("pic02.jpg", alt: "") %></span>
+								<h3>贵人相助</h3>
+								<p>放对地方就是人才，朋友、离职的同事、不合适的应聘者，随手助他，发现合适的地方；顺手赚取万元 Leads 入职奖金。</p>
+								<ul class="actions">
+									<li><a href="referrer.html" class="button alt special_button">我是贵人</a></li>
+								</ul>
+							</section>
+
+						</div>
+						<div class="6u 12u(narrower)">
+
+							<section class="box special">
+								<span class="image featured"><%= image_tag("pic03.jpg", alt: "") %></span>
+								<h3>开源项目</h3>
+								<p>优秀的 github 项目，招募队友。有的时候，只是想单纯地做点事，无关乎收入，无关乎职位，只要一颗爱技术的心。</p>
+								<ul class="actions">
+									<li><a href="#" class="button alt special_button">我要加入</a></li>
+								</ul>
+							</section>
+
+						</div>
+					</div>
+
+				</section>
+
+			<!-- CTA -->
+				<section id="cta">
+
+					<h2>我要招人</h2>
+					<!-- <div id="contact">
+						<p>请通过以下联系方式与我们联系</p>
+						<div class="row uniform 50%">
+							<div class="3u 12u(mobilep) contact_detail">
+								<p>Lisa/李小姐</p>
+							</div>
+							<div class="3u 12u(mobilep) contact_detail">
+								<p>顾问</p>
+							</div>
+							<div class="3u 12u(mobilep) contact_detail">
+								<p>100 0000 0000</p>
+							</div>
+							<div class="3u 12u(mobilep) contact_detail">
+								<p>lisa@leadsto.cn</p>
+							</div>
+						</div>
+						
+					</div> -->
+					
+						<%= render 'customers/customer_form', customer: @customer %>
+						<!-- <div id="error_show">
+						</div> -->
+						
+					
+					<!-- <form>
+						<div class="row uniform 50%">
+							<div class="6u 12u(mobilep)">
+								<input type="text" name="title" id="title" placeholder="称呼 | 必填" />
+							</div>
+							<div class="6u 12u(mobilep)">
+								<input type="text" name="position" id="position" placeholder="职务 | 可选" />
+							</div>
+							<div class="6u 12u(mobilep)">
+								<input type="text" name="phone" id="phone" placeholder="电话 | 必填" />
+							</div>
+							<div class="6u 12u(mobilep)">
+								<input type="text" name="company" id="company" placeholder="公司 | 可选" />
+							</div>
+							<div class="6u 12u(mobilep)">
+								<input type="text" name="comment" id="comment" placeholder="备注 | 可选" />
+							</div>
+							<div class="6u 12u(mobilep)">
+								<input type="submit" value="提交" class="fit" />
+							</div>
+						</div>
+					</form> -->
+
+				</section>
+
+			
+		
+
+		
+
+	

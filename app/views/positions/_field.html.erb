@@ -1,0 +1,69 @@
+<%= render 'shared/error_messages', object: f.object %>
+
+<%= f.label :name, "职位名" %>
+<%= f.text_field :name, class: "form-control" %>
+
+<%= f.label :bonus, "入职金" %>
+<%= f.text_field :bonus, class: "form-control" %>
+
+<%= f.label :salary_bottom, "最低薪水（万）" %>
+<%= f.text_field :salary_bottom, class: "form-control" %>
+
+<%= f.label :salary_top, "最高薪水（万）" %>
+<%= f.text_field :salary_top, class: "form-control" %>
+
+<%= f.label :city, "城市" %>
+<%= f.select :city, ['上海', '北京', '深圳', '广州'], class: "form-control" %>
+
+<%= f.label :district, "区域" %>
+<%= f.select :district, ['静安', '黄浦', '浦东', '长宁', '徐汇'], class: "form-control" %>
+
+<%= f.label :address, "地址" %>
+<%= f.text_field :address, class: "form-control" %>
+
+<%= f.label :department, "部门" %>
+<%= f.text_field :department, class: "form-control" %>
+
+<%= f.label :report_to, "汇报对象" %>
+<%= f.text_field :report_to, class: "form-control" %>
+
+<%= f.label :education, "学历" %>
+<%= f.select :education, ['学历不限', '初中及以上', '高中及以上', '大专及以上', '本科及以上', '研究生及以上', '博士及以上'], class: "form-control" %>
+
+<%= f.label :experience, "工作经验" %>
+<%= f.select :experience, ['经验不限', '1年以上', '3年以上', '5年以上', '8年以上', '15年以上'], class: "form-control" %>
+
+<%= f.label :age_top, "年龄上限（0代表无上限）" %>
+<%= f.text_field :age_top, value: '0', class: "form-control" %>
+
+<%= f.label :age_bottom, "年龄下限（0代表无下限）" %>
+<%= f.text_field :age_bottom, value: '0', class: "form-control" %>
+
+<%= f.label :keyword, "关键词（关键词用空格分隔）" %>
+<%= f.text_area :keyword, class: "form-control" %>
+
+<%= f.label :demanding, "需要人数" %>
+<%= f.text_field :demanding, class: "form-control" %>
+
+<%= f.label :recommended, "推荐人数" %>
+<%= f.text_field :recommended, value: "0", class: "form-control" %>
+
+<%= f.label :interviewee, "面试人数" %>
+<%= f.text_field :interviewee, value: "0", class: "form-control" %>
+
+<%= f.label :entry, "已入职人数" %>
+<%= f.text_field :entry, value: "0", class: "form-control" %>
+
+<%= f.label :responsibility, "岗位职责" %>
+<%= f.text_area :responsibility, class: "form-control" %>
+
+<%= f.label :requirement, "任职要求" %>
+<%= f.text_area :requirement, class: "form-control" %>
+
+<%= f.label :consultant, "负责顾问" %>
+<%= f.select :consultant, ['Lisa'], class: "form-control" %>
+
+<%= f.label :status, "岗位状态" %>
+<%= f.select :status, ['打开', '暂停', '关闭'], class: "form-control" %>
+
+<%= f.submit "确定", class: "button" %>

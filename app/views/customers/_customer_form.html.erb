@@ -1,0 +1,106 @@
+<%= form_for customer, remote: true do |f| %>
+	<div class="row uniform 50%">
+		<div class="6u 12u(mobilep)">
+			<%= f.text_field :name, id: 'title', placeholder: '称呼 | 必填' %>
+			<!-- <input type="text" name="title" id="title" placeholder="称呼 | 必填" /> -->
+		</div>
+		<div class="6u 12u(mobilep)">
+			<%= f.text_field :position, id: 'position', placeholder: '职务 | 可选' %>
+			<!-- <input type="text" name="position" id="position" placeholder="职务 | 可选" /> -->
+		</div>
+		<div class="6u 12u(mobilep)">
+			<%= f.text_field :phone, id: 'phone', placeholder: '电话 | 必填' %>
+			<!-- <input type="text" name="phone" id="phone" placeholder="电话 | 必填" /> -->
+		</div>
+		<div class="6u 12u(mobilep)">
+			<%= f.text_field :company, id: 'company', placeholder: '公司 | 可选' %>
+			<!-- <input type="text" name="company" id="company" placeholder="公司 | 可选" /> -->
+		</div>
+		<div class="6u 12u(mobilep)">
+			<%= f.text_field :comment, id: 'comment', placeholder: '备注 | 可选' %>
+			<!-- <input type="text" name="comment" id="comment" placeholder="备注 | 可选" /> -->
+		</div>
+		<div class="6u 12u(mobilep)">
+			<%= f.submit "提交", class: 'fit' %>
+			<!-- <input type="submit" value="提交" class="fit" /> -->
+		</div>
+	</div>	
+	
+	<br>
+	<div id="error_show">
+	</div>
+
+<% end %>
+
+<!-- <form>
+	<div class="row uniform 50%">
+		<div class="6u 12u(mobilep)">
+			<input type="text" name="title" id="title" placeholder="称呼 | 必填" />
+		</div>
+		<div class="6u 12u(mobilep)">
+			<input type="text" name="position" id="position" placeholder="职务 | 可选" />
+		</div>
+		<div class="6u 12u(mobilep)">
+			<input type="text" name="phone" id="phone" placeholder="电话 | 必填" />
+		</div>
+		<div class="6u 12u(mobilep)">
+			<input type="text" name="company" id="company" placeholder="公司 | 可选" />
+		</div>
+		<div class="6u 12u(mobilep)">
+			<input type="text" name="comment" id="comment" placeholder="备注 | 可选" />
+		</div>
+		<div class="6u 12u(mobilep)">
+			<input type="submit" value="提交" class="fit" />
+		</div>
+	</div>
+</form> -->
+
+		<!-- Scripts -->
+			
+			<script type="text/javascript">
+				$("#title").focus(function(){
+					// alert(1);
+					$("#title").attr("placeholder", "");
+				});
+				$("#title").blur(function(){
+					// alert(1);
+					$("#title").attr("placeholder", "称呼 | 必填");
+				});
+				
+				$("#position").focus(function(){
+					// alert(1);
+					$("#position").attr("placeholder", "");
+				});
+				$("#position").blur(function(){
+					// alert(1);
+					$("#position").attr("placeholder", "职位 | 必填");
+				});
+				
+				$("#phone").focus(function(){
+					// alert(1);
+					$("#phone").attr("placeholder", "");
+				});
+				$("#phone").blur(function(){
+					// alert(1);
+					$("#phone").attr("placeholder", "电话 | 必填");
+				});
+				
+				$("#company").focus(function(){
+					// alert(1);
+					$("#company").attr("placeholder", "");
+				});
+				$("#company").blur(function(){
+					// alert(1);
+					$("#company").attr("placeholder", "公司 | 必填");
+				});
+				
+				$("#comment").focus(function(){
+					// alert(1);
+					$("#comment").attr("placeholder", "");
+				});
+				$("#comment").blur(function(){
+					// alert(1);
+					$("#comment").attr("placeholder", "备注 | 必填");
+				});
+				
+			</script>

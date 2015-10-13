@@ -1,0 +1,282 @@
+
+#banner span {
+	font-size: 0.8em !important;
+}
+
+h2 {
+	font-size: 1.75em;
+}
+
+header h2+p {
+	font-size: 1em;
+}
+
+header h1 a img {
+	padding-top: 7px;
+}
+
+.features p, .p_left p {
+	text-align: left;
+}
+
+/*#main {
+	padding-top: 2em;
+}*/
+
+#cta form {	
+	width: 40em;
+}
+
+/*#contact {
+	margin: 0 auto;
+    max-width: 100%;
+	border-top: 2px solid rgba(255,255,255,0.3);
+	padding-top: 1em;
+	padding-bottom: 1em;
+	margin-bottom: 1em;
+}*/
+
+#cta input {
+	text-align: center;
+	border: 1px solid rgba(255,255,255,0.8) !important;
+}
+
+#cta h2 {
+	padding-bottom: 1em;
+}
+
+/*.contact_detail p {
+	height: 3em;
+	line-height: 3em;
+	border-top: 1px solid rgba(255,255,255,0.2);
+	border-bottom: 1px solid rgba(255,255,255,0.2);
+}*/
+
+.special_button {
+	background-color: rgba(119, 119, 119, 0.3) !important;
+}
+
+.referrer_button {
+	height: 2.5em;
+	line-height: 2.5em;
+	float: right;
+	margin-top: -0.4em;
+	background-color: rgba(34,139,34,0.3) !important;
+}
+
+/*.position_part>table tr, td {
+	border: none !important;
+	background-color: rgb(255,255,255);
+}*/
+
+/*.company_part {
+	border-width: 0 0 0 1px;
+	border-style: solid;
+	border-color: rgba(192,192,192,0.8);
+	background-color: rgba(34,139,34,0.3);
+}*/
+
+.position_list {
+	padding: 1.5em 3em;
+}
+
+.position_list table {
+	margin-bottom: 1em;
+}
+
+.position_list table tr td{
+	padding: 0.5em;
+}
+
+.position_part>table tr {
+	border: none !important;
+}
+
+.position_part>table td {
+/*	background-color: rgba(34,139,34,0.1);*/
+	background-color: rgb(245,245,245);
+}
+.keyword_part>table tr {
+	border: none !important;
+}
+
+.keyword_part>table td {
+	background-color: rgb(245,245,245);
+}
+.company_part>table tr {
+	border: none !important;
+}
+
+.company_part>table td {
+	background-color: rgb(245,245,245);
+}
+
+.position_list>.fa-square {
+	float: right;
+	color: rgba(34,139,34,0.3);
+	margin-left: 2px;
+}
+
+.position_list span.fa-tags {
+	color: rgba(119,119,119,0.4);
+}
+
+.position_list>.row {
+	padding-top: 1em;
+}
+
+a:hover {
+	border-bottom: dotted 1px;
+}
+
+.date {
+	color: rgba(119,119,119,0.6);
+}
+
+
+/* maptool */
+#maptool {
+	width: 100%;
+	height: 300px;
+	border-radius: 6px;
+	margin-bottom: 1em;
+/*	box-shadow: 3px rgb(229, 229, 229);*/
+}
+
+#start_point {
+	border-color: rgba(119, 119, 119, 0.5);
+	margin-bottom: 1em;
+}
+
+#transit_result, #driving_result {
+	width: 49%;
+	color: rgba(119, 119, 119, 1);
+	background-color: rgba(119, 119, 119, 0.3);
+}
+
+#driving_result {
+	float: right;
+}
+
+/*.p_map {
+	padding: 1em;
+}*/
+
+.tranroute-plan-list {
+	border-width: 2px 0;
+	border-color: rgba(119, 119, 119, 0.3);
+}
+
+/*#r_result>h1 {
+	.font-weight: 400 !important;
+}*/
+
+/* position_detail */
+#status td {
+	padding: 1px;
+	text-align: center;
+}
+
+/*#status table {
+	border-radius: 6px;
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+}*/
+
+#basic_info {
+	font-size: 1.1em;
+/*	font-weight: 500;*/
+/*	color: rgba(232, 153, 128, 1);*/
+	color: black;
+	padding-left: 1em;
+}
+
+#basic_info p {
+	margin-bottom: 5px;
+}
+
+#basic_info span.icon {
+	color: rgba(119, 119, 119, 1)
+}
+
+.p_icon {
+	padding: 0 18px 0 4px;
+/*	color: rgba(119, 119, 119, 1);*/
+/*	width: 2em;*/
+/*	text-align: center;*/
+}
+
+.p_icon_spec {
+	padding: 0 13px 0 2px;
+}
+
+.p_icon_spec1 {
+	padding: 0 10px 0 0;
+}
+
+.p_icon_spec2 {
+	padding: 0 15px 0 3px;
+}
+
+/*#detail_info {
+	margin-top: 1em;
+	background-color: rgba(245, 245, 245, 1);
+	padding: 1.5em 1em;
+}*/
+
+.p_content>.box_padding {
+	margin-top: 1em;
+	background-color: rgba(245, 245, 245, 1);
+	padding: 1.5em 1em;
+}
+
+.p_aside>.box_padding {
+	margin-bottom: 2em;
+/*	background-color: rgba(245, 245, 245, 1);*/
+	padding: 0 1em;
+	border-style: solid;
+	border-width: 0 0 0 1px;
+	border-color: rgba(119, 119, 119, 0.3)
+}
+
+/*#detail_info p {
+	margin-bottom: 0.6em;
+}*/
+
+#main p {
+	margin-bottom: 0.6em;
+}
+
+.p_title {
+	color: black;
+	font-size: 1em;
+}
+
+.icon_center {
+/*	position: absolute !important;*/
+	display: block;
+	width: 100%;
+	margin: auto;
+	text-align: center;
+/*	color: black;*/
+}
+
+#p_company .button {
+	float: right;
+	background-color: rgba(119, 119, 119, 0.3);
+	color: rgba(119, 119, 119, 1);
+/*	margin-top: 0.5em;*/
+}
+
+#recommend_form .special {
+	margin: 0.5em 0;
+	display: block;
+	width: 100%;
+/*	margin: auto;*/
+/*	text-align: center;*/
+}
+
+#banner {
+	background-position: center center;
+	background-size: cover;
+}

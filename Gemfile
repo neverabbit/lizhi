@@ -25,7 +25,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'faker'
 gem 'carrierwave'
-gem 'mini_magick'
+# gem 'mini_magick'
 gem 'fog'
 gem 'will_paginate'
 gem 'bootstrap-will_paginate'
@@ -34,6 +34,9 @@ gem 'bcrypt'
 gem 'unicode'
 gem 'sunspot_rails'
 gem 'sunspot_solr'
+gem 'net-ssh', '2.9.2'
+gem 'fog-google', '0.0.9'
+gem 'minitest', '5.8.1'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -46,7 +49,7 @@ gem 'sunspot_solr'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug'
+  # gem 'byebug'
 
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'

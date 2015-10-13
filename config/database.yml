@@ -15,7 +15,7 @@ default: &default
   pool: 5
   username: root
   password: wang1987127
-  socket: /tmp/mysql.sock
+  # socket: /tmp/mysql.sock
 
 development:
   <<: *default
@@ -50,5 +50,5 @@ test:
 production:
   <<: *default
   database: leadsto_production
-  username: leadsto
-  password: <%= ENV['LEADSTO_DATABASE_PASSWORD'] %>
+  # username: leadsto
+  # password: <%= ENV['LEADSTO_DATABASE_PASSWORD'] %>

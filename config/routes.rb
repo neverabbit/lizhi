@@ -1,4 +1,17 @@
 Rails.application.routes.draw do
+  
+  root 'static_themes#home'
+  
+  # get 'static_themes/home'
+
+  get 'contact' => 'static_themes#contact'
+  
+  get 'business' => 'static_themes#business'
+  
+  resources :positions
+  
+  resources :customers
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

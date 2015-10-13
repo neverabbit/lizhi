@@ -1,0 +1,32 @@
+
+
+			<!-- Header -->
+<!-- > 				<header id="header" class="alt"> -->
+				<%= content_tag :header, id: "header", class: @header_class do %>
+					<h1><%= link_to image_tag("logo_header.png"), root_url %></h1>
+					<nav id="nav">
+						<ul>
+							<li><%= link_to 'Home', root_path %></li>
+							<li><%= link_to 'Contact', contact_path %></li>
+							<!-- <li>
+								<a href="#" class="icon fa-angle-down">Layouts</a>
+								<ul>
+									<li><a href="generic.html">Generic</a></li>
+									<li><a href="contact.html">Contact</a></li>
+									<li><a href="elements.html">Elements</a></li>
+									<li>
+										<a href="#">Submenu</a>
+										<ul>
+											<li><a href="#">Option One</a></li>
+											<li><a href="#">Option Two</a></li>
+											<li><a href="#">Option Three</a></li>
+											<li><a href="#">Option Four</a></li>
+										</ul>
+									</li>
+								</ul>
+							</li> -->
+							<!-- <li><a href="#" class="button">Sign Up</a></li> -->
+						</ul>
+					</nav>
+				<!-- </header> -->
+				<% end %>

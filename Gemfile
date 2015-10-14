@@ -38,6 +38,7 @@ gem 'net-ssh', '2.9.2'
 gem 'fog-google', '0.0.9'
 gem 'minitest', '5.8.1'
 gem 'font-awesome-rails'
+gem 'CFPropertyList', '2.2.8'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

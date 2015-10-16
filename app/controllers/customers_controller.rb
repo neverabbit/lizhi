@@ -20,7 +20,7 @@ class CustomersController < ApplicationController
   end
   
   def index 
-    @customers = Customer.all
+    @customers = Customer.paginate(page: params[:page])
   end
   
   private

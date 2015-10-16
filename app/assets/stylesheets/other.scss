@@ -1,0 +1,47 @@
+//@import "bootstrap-sprockets";
+//@import "bootstrap";
+
+$red-color: #e89980;
+$green-color:#7fcdb8;
+$blue-color: #90b0ba;
+$yellow-color: #e5cb95;
+$white-color: #ffffff;
+//@mixin background-opacity($color, $opacity: .3) {
+//	background-color: $color;
+//	background-color: rgba($color, $opacity);
+//}
+
+/* contact page */
+#contact_page h4 {
+//	background-color: $green-color;
+	font-size: 1.4em;
+	text-align: left;
+	letter-spacing: 1px;
+}
+
+#contact_page p {
+	font-size: 1.1em;
+	letter-spacing: 1px;
+}
+
+#contact_hunting {
+	background-color: rgba($green-color, .3);
+}
+#contact_recommendation {
+	background-color: rgba($yellow-color, .3);
+}
+#contact_hotline {
+	background-color: rgba($blue-color, .3);
+}
+
+#contact_page {
+//	padding-left: 2em;
+	margin-left: 0;
+	background-color: $white-color;
+//	padding-left: 0;
+//	margin-left: 2em;
+}
+
+#header a {
+	font-weight: 500;
+}

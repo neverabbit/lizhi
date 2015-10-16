@@ -1,0 +1,23 @@
+<% @tab_title = "合作管理" %>
+
+<section id="main" class="container">
+	<header>
+		<h2>合作处理</h2>
+	</header>
+	<section class="box special">
+		<%= will_paginate %>
+		
+		<div class="customers">
+			<% @customers.each do |customer| %>
+			<div class="box">
+				<%= customer.name %>
+				<%= customer.phone %>
+				<%= customer.position %>
+				<%= customer.company %>
+				<%= customer.comment %>
+			<% end %>
+			</div>
+		</div>
+		<%= will_paginate %>
+	</section>
+</section>

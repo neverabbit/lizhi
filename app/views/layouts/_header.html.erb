@@ -6,8 +6,22 @@
 					<h1><%= link_to image_tag("logo_header.png"), root_url %></h1>
 					<nav id="nav">
 						<ul>
-							<li><%= link_to 'Home', root_path %></li>
-							<li><%= link_to 'Contact', contact_path %></li>
+							<li><%= link_to '商务合作', business_path %></li>
+							<li>
+								<!-- <a href="#", class="icon fa-angle-down">关于LEADS</a> -->
+								<%= link_to "关于LEADS", "#", class: "icon fa-angle-down" %>
+								<ul>
+									<li><%= link_to "公司介绍", "#" %></li>
+									<li><%= link_to "主营业务", "#" %></li>
+									<li><%= link_to "联系方式", contact_path %></li>
+									<li><%= link_to "加入我们", "#" %></li>
+								</ul>
+							</li>
+							<!-- <ul>
+								<li><%= link_to "公司介绍" %></li>
+								<li><a href="#">Option Two</a></li>
+								<li><a href="#">Option Three</a></li>
+							</ul> -->
 							<!-- <li>
 								<a href="#" class="icon fa-angle-down">Layouts</a>
 								<ul>

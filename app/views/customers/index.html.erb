@@ -1,23 +1,49 @@
-<% @tab_title = "合作管理" %>
+<% @tab_title = "合作申请" %>
 
 <section id="main" class="container">
 	<header>
-		<h2>合作处理</h2>
+		<h2>合作申请</h2>
 	</header>
 	<section class="box special">
-		<%= will_paginate %>
+		<%= will_paginate  previous_label: "上一页",
+next_label: "下一页" %>
 		
 		<div class="customers">
 			<% @customers.each do |customer| %>
 			<div class="box">
-				<%= customer.name %>
-				<%= customer.phone %>
-				<%= customer.position %>
-				<%= customer.company %>
-				<%= customer.comment %>
-			<% end %>
+				<p><%= customer.created_at.to_s.gsub(' UTC', '') %></p>
+				<table>
+					<tr>
+						<th>称呼</th>
+						<td><%= customer.name %></td>
+					</tr>
+					<tr>
+						<th>职位</th>
+						<td><%= customer.position %></td>
+					</tr>
+					<tr>
+						<th>电话</th>
+						<td><%= customer.phone %></td>
+					</tr>
+					<tr>
+						<th>公司</th>
+						<td><%= customer.company %></td>
+					</tr>
+					<tr>
+						<th>备注</th>
+						<td><%= customer.comment %></td>
+					</tr>
+					<!-- <%= customer.created_at %>
+					<%= customer.name %>
+					<%= customer.phone %>
+					<%= customer.position %>
+					<%= customer.company %>
+					<%= customer.comment %> -->
+				</table>
 			</div>
+			<% end %>
 		</div>
-		<%= will_paginate %>
+		<%= will_paginate previous_label: "上一页",
+next_label: "下一页" %>
 	</section>
 </section>

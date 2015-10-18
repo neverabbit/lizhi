@@ -1,4 +1,4 @@
-@import url("font-awesome.min.css");
+/*@import url("font-awesome.min.css");*/
 @import url("googleapi.css");
 
 /*
@@ -2972,7 +2972,8 @@
 		list-style: none;
 		margin: calc(-0.5em + 1px) 0 0 1px;
 		padding: 0.5em 0;
-		width: 11em;
+		width: 8em;
+		text-align: center;
 	}
 
 		.dropotron li {

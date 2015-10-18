@@ -3,16 +3,17 @@
 			<!-- Header -->
 <!-- > 				<header id="header" class="alt"> -->
 				<%= content_tag :header, id: "header", class: @header_class do %>
-					<h1><%= link_to image_tag("logo_header.png"), root_url %></h1>
+					<h1><%= image_tag("logo_header.png") %></h1>
 					<nav id="nav">
 						<ul>
+							<li><%= link_to '首页', root_url %></li>
 							<li><%= link_to '商务合作', business_path %></li>
 							<li>
 								<!-- <a href="#", class="icon fa-angle-down">关于LEADS</a> -->
 								<%= link_to "关于LEADS", "#", class: "icon fa-angle-down" %>
 								<ul>
 									<li><%= link_to "公司介绍", "#" %></li>
-									<li><%= link_to "主营业务", "#" %></li>
+									<!-- <li><%= link_to "主营业务", "#" %></li> -->
 									<li><%= link_to "联系方式", contact_path %></li>
 									<li><%= link_to "加入我们", "#" %></li>
 								</ul>
@@ -22,23 +23,7 @@
 								<li><a href="#">Option Two</a></li>
 								<li><a href="#">Option Three</a></li>
 							</ul> -->
-							<!-- <li>
-								<a href="#" class="icon fa-angle-down">Layouts</a>
-								<ul>
-									<li><a href="generic.html">Generic</a></li>
-									<li><a href="contact.html">Contact</a></li>
-									<li><a href="elements.html">Elements</a></li>
-									<li>
-										<a href="#">Submenu</a>
-										<ul>
-											<li><a href="#">Option One</a></li>
-											<li><a href="#">Option Two</a></li>
-											<li><a href="#">Option Three</a></li>
-											<li><a href="#">Option Four</a></li>
-										</ul>
-									</li>
-								</ul>
-							</li> -->
+						
 							<!-- <li><a href="#" class="button">Sign Up</a></li> -->
 						</ul>
 					</nav>

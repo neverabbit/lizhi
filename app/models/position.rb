@@ -7,6 +7,7 @@ class Position < ActiveRecord::Base
   validates :name, presence: true, length: { maximum: 50 }
   validates :bonus, presence: true #, FILL
   validates :salary_top, :salary_bottom, presence: true #, #FILL
+  validates :salary_top, numericality: { greater_than_or_equal_to: lambda{ |position| positition.salary_bottom } }
   validates :city, presence: true #, FILL
   validates :district, presence: true #, FILL
   validates :address, presence: true, length: { maximum: 50 }

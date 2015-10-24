@@ -1,0 +1,39 @@
+<%= render 'shared/error_messages', object: f.object %>
+<div class="row">
+	<div class="6u 12u(mobilep)">
+		<%= f.label :name, "公司名" %>
+		<%= f.text_field :name, class: "form-control" %>
+	</div>
+
+	<div class="6u 12u(mobilep)">
+		<%= f.label :address, "总部所在地" %>
+		<%= f.text_field :address, class: "form-control" %>
+	</div>
+</div>
+
+<%= render 'shared/error_messages', object: f.object %>
+<div class="row">
+	<div class="3u 12u(mobilep)">
+		<%= f.label :founded_at, "创建时间" %>
+		<%= f.select :founded_at, (Time.zone.now.year-50..Time.zone.now.year).to_a.reverse, class: "form-control" %>
+		<!-- <%= f.date_select :founded_at, discard_date: true, discard_month: true, start_year: 1970, end_year: Date.today.year, include_blank: true, class: "form-control" %> -->
+	</div>
+
+	<div class="3u 12u(mobilep)">
+		<%= f.label :property, "入职金（千）" %>
+		<%= f.select :property, company_properties, class: "form-control" %>
+	</div>
+	<!-- ['国有', '私营', '合资'] -->
+	<div class="6u 12u(mobilep)">
+		<%= f.label :scale, "规模" %>
+		<%= f.select :scale, company_scale, class: "form-control" %>
+	</div>
+</div>
+
+	<%= f.label :keyword, "关键词（关键词用空格分隔）" %>
+	<%= f.text_field :keyword, class: "form-control" %>
+	
+	<%= f.label :comment, "备注" %>
+	<%= f.text_area :comment, class: "form-control" %>
+
+<%= f.submit "确定", class: "button" %>

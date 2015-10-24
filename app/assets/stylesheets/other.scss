@@ -97,3 +97,29 @@ ul.pagination .active a {
 	text-align: left;
 	font-weight: bold;
 }
+
+/* introduction */
+.intro_content {
+//	position: absolute;
+	text-align: left;
+	margin: 0 auto;
+	max-width: 100%;
+	width: 40em;
+	float: none;
+}
+
+#content_blue {
+	background-color: $green-color;
+}
+
+.intro_content h4 {
+	color: $red-color;
+}
+
+//#cta_blue {
+//	background: $green-color none repeat scroll 0 0;
+//    color: #f9e5df;
+//    padding: 3.5em 0 4em;
+//    text-align: center;
+//}
+

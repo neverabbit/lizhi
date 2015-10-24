@@ -1,0 +1,15 @@
+<% @tab_title = "公司录入" %>
+
+<section id="main" class="container">
+	<header>
+		<h2>公司录入</h2>
+		<!-- <p>2015.9.25</p> -->
+	</header>
+	
+	<div class="box p_detail box_padding">
+		<%= form_for(@company) do |f| %>
+			<%= render 'company_form', f: f %>
+			
+		<% end %>
+	</div>
+</section>

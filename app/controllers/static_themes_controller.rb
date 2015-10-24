@@ -7,5 +7,13 @@ class StaticThemesController < ApplicationController
   end
   
   def business
+    @customer = Customer.new
   end
+  
+  def intro
+  end
+  
+  def recruit
+  end
+
 end

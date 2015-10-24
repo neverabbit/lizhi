@@ -1,0 +1,46 @@
+<% @tab_title = "公司详情" %>
+
+<section id="main" class="container">
+	<header>
+		<h2><%= @company.name %></h2>
+		<!-- <p><%= @company.created_at.to_date %></p> -->
+	</header>
+	<div class="box p_detail box_padding">
+		<div class="row">
+			<div class="7u 12u(mobilep) p_content">
+				<div id="status">
+					<table class="">
+						<tr>
+							<td><%= 1 %> 推荐</td>
+							<td><%= 2 %> 面试</td>
+							<td><%= 3 %> 入职</td>
+							<td><%= 4 %> 空岗</td>
+						</tr> 
+					</table>
+				</div>
+				<div id="basic_info">
+					<p><span class="icon fa-university p_icon_spec"></span><%= @company.property %></p>
+					
+					<p><span class="icon fa-users p_icon_spec"></span><%= @company.scale %></p>
+					<p><span class="icon fa-map-marker p_icon"></span><%= @company.address %></p>
+					<p><span class="icon fa-clock-o p_icon_spec2"></span><%= @company.founded_at %></p>
+					
+					<p><%= @company.keyword %></p>
+					<!-- <p><%= @company.comment %></p> -->
+				</div>
+				
+				<p><%= @company.introduction %></p>
+			
+			</div>
+			<div class="5u 12u(mobilep) p_content">
+				<span class="icon fa-tags p_icon_spec"></span><% @company.keyword.split(' ').each do |k| %><span class='keyword'><%= k %></span><% end %>
+			</div>
+		</div>
+		<div class="row">
+			<p><%= @company.introduction %></p>
+		</div>
+		<div class="row">
+			<p><%= @company.introduction %></p>
+		</div>
+	</div>
+</section>

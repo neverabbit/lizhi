@@ -10,8 +10,9 @@ class ResumeConvertersController < ApplicationController
     
     resume = params[:resume_htm]
     name = convert_resume(resume)    
-    send_file("#{Rails.root}/public/converter/output/"+name+'.docx')
+    send_file("#{Rails.root}/public/converter/output/"+name+'.docx') if !name.nil?
     # render 'new'
+    render 'new'
   end
   
   private

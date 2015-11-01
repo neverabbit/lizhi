@@ -9,10 +9,14 @@ class ResumeConvertersController < ApplicationController
     # uploader = ResumeHtmUploader.new
     
     resume = params[:resume_htm]
-    name = convert_resume(resume)    
+    if resume.nil?
+      name = nil
+    else
+      name = convert_resume(resume)  
+    end  
     send_file("#{Rails.root}/public/converter/output/"+name+'.docx') if !name.nil?
     # render 'new'
-    render 'new'
+    # render 'new'
   end
   
   private
@@ -20,6 +24,5 @@ class ResumeConvertersController < ApplicationController
   #   params.permit(:resume)
   # end
   
-  def self.import(file)
-  end
+
 end

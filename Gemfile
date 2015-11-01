@@ -39,6 +39,7 @@ gem 'fog-google', '0.0.9'
 gem 'minitest', '5.8.1'
 gem 'font-awesome-rails'
 gem 'CFPropertyList', '2.3.2'
+gem 'docx'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

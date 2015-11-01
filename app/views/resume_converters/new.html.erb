@@ -1,0 +1,23 @@
+<% @tab_title = "转换简历" %>
+
+<section id="main" class="container">
+	<header>
+		<h2>转换简历</h2>
+	</header>
+	<div class="box box_padding">
+		<%= form_tag({controller: 'resume_converters', action: 'convert'}, multipart: true) do %>
+			
+			<%= label_tag "上传简历（猎聘／htm格式）" %>
+			<%= file_field_tag :resume_htm %>
+			<br><br>
+			<%= submit_tag "转换简历", class: 'submit' %>
+		<% end %>
+		
+		<br><br>
+		<h4>下载文件后注意事项</h4>
+		<p>1, 红色部分需要手动填写</p>
+		<p>2, 教育经历、工作经历、项目经历三部分中的空白删去</p>
+		<p>3, 教育经历、工作经历、项目经历三部分选中后选择 Microsoft Yahei 字体</p>
+		<p>4, 对照原简历检查是否有问题并调整</p>
+	</div>
+</section>

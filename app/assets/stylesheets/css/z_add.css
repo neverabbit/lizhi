@@ -12,7 +12,9 @@ header h2+p {
 }
 
 header h1 img {
-	padding-top: 7px;
+	padding-top: 0.5em;
+	width: 2.3em;
+	height: 2.8em;
 }
 
 .features p, .p_left p {

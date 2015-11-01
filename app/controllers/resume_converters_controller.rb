@@ -14,7 +14,7 @@ class ResumeConvertersController < ApplicationController
     else
       name = convert_resume(resume)  
     end  
-    # send_file("#{Rails.root}/public/converter/output/"+name+'.docx') if !name.nil?
+    send_file("#{Rails.root}/public/converter/output/"+name+'.docx') if !name.nil?
     # render 'new'
     # render 'new'
   end

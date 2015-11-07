@@ -127,3 +127,27 @@ ul.pagination .active a {
 //    text-align: center;
 //}
 
+// logo configuration for PC and pad
+.logo_image {
+	height: 80px;
+	width: 80px;
+	margin: 10px 30px;
+	border: 1px solid #e5e5e5;
+}
+
+// logo configuration for mobile phone
+@media screen and (max-width: 760px) {
+
+	.logo_image {
+		height: 60px;
+		width: 60px;
+		margin: 0 10px 15px;
+		border: 1px solid #e5e5e5;
+	}
+}
+
+#logo_area h3 {
+	color: rgba($gray-font-color, 0.5);
+}
+
+

@@ -1,0 +1,8 @@
+<% logo_files = Dir.glob("#{Rails.root}/app/assets/images/client_logo/**/*") %>
+<% logo_files.each do |l| %>
+	<!-- <%= logo_name = File.basename(l) %> -->
+	<%= image_tag("client_logo/"+logo_name, class: "logo_image") %>
+	
+
+
+<% end %>

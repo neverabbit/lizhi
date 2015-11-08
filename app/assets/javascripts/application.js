@@ -51,6 +51,7 @@
 					alignment: 'right',
 					expandMode: 'click'
 				});
+				// console.log($('#nav > ul'));
 
 			// Off-Canvas Navigation.
 

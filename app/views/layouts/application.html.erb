@@ -9,12 +9,7 @@
 	  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
 	  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 	  <%= csrf_meta_tags %>
-	  <script>
-		$('#nav > ul').dropotron({
-			alignment: 'right',
-			expandMode: 'click'
-		});
-	  </script>
+
 	</head>
 	<!-- <body class= #{@body_class} > -->
 		
@@ -30,5 +25,6 @@
 			
 		</div>
 	<% end %>
+	<%= javascript_include_tag 'application.js' %>
 	<!-- </body> -->
 </html>

@@ -131,23 +131,30 @@ ul.pagination .active a {
 .logo_image {
 	height: 80px;
 	width: 80px;
-	margin: 10px 30px;
+	margin: 10px 35px;
 	border: 1px solid #e5e5e5;
-}
-
-// logo configuration for mobile phone
-@media screen and (max-width: 760px) {
-
-	.logo_image {
-		height: 60px;
-		width: 60px;
-		margin: 0 10px 15px;
-		border: 1px solid #e5e5e5;
-	}
 }
 
 #logo_area h3 {
 	color: rgba($gray-font-color, 0.5);
 }
+
+@media screen and (max-width: 760px) {
+
+// logo configuration for mobile phone
+	.logo_image {
+		height: 60px;
+		width: 60px;
+		margin: 0 15px 15px;
+		border: 1px solid #e5e5e5;
+	}
+
+	// contact padding for mobile phone
+	#contact_hunting, #contact_recommendation, #contact_hotline {
+		padding-left: 2.2em !important;
+	}
+}
+
+
 
 

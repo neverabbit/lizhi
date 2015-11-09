@@ -21,22 +21,9 @@ header h1 img {
 	text-align: left;
 }
 
-/*#main {
-	padding-top: 2em;
-}*/
-
 #cta form {	
 	width: 40em;
 }
-
-/*#contact {
-	margin: 0 auto;
-    max-width: 100%;
-	border-top: 2px solid rgba(255,255,255,0.3);
-	padding-top: 1em;
-	padding-bottom: 1em;
-	margin-bottom: 1em;
-}*/
 
 #cta input {
 	text-align: center;
@@ -46,13 +33,6 @@ header h1 img {
 #cta h2 {
 	padding-bottom: 1em;
 }
-
-/*.contact_detail p {
-	height: 3em;
-	line-height: 3em;
-	border-top: 1px solid rgba(255,255,255,0.2);
-	border-bottom: 1px solid rgba(255,255,255,0.2);
-}*/
 
 .special_button {
 	background-color: rgba(119, 119, 119, 0.3) !important;
@@ -65,18 +45,6 @@ header h1 img {
 	margin-top: -0.4em;
 	background-color: rgba(34,139,34,0.3) !important;
 }
-
-/*.position_part>table tr, td {
-	border: none !important;
-	background-color: rgb(255,255,255);
-}*/
-
-/*.company_part {
-	border-width: 0 0 0 1px;
-	border-style: solid;
-	border-color: rgba(192,192,192,0.8);
-	background-color: rgba(34,139,34,0.3);
-}*/
 
 .position_list {
 	padding: 1.5em 3em;
@@ -160,18 +128,10 @@ a:hover {
 	float: right;
 }
 
-/*.p_map {
-	padding: 1em;
-}*/
-
 .tranroute-plan-list {
 	border-width: 2px 0;
 	border-color: rgba(119, 119, 119, 0.3);
 }
-
-/*#r_result>h1 {
-	.font-weight: 400 !important;
-}*/
 
 /* position_detail */
 #status td {
@@ -179,16 +139,8 @@ a:hover {
 	text-align: center;
 }
 
-/*#status table {
-	border-radius: 6px;
-	-moz-border-radius: 6px;
-	-webkit-border-radius: 6px;
-}*/
-
 #basic_info {
 	font-size: 1.1em;
-/*	font-weight: 500;*/
-/*	color: rgba(232, 153, 128, 1);*/
 	color: black;
 	padding-left: 1em;
 }
@@ -203,9 +155,6 @@ a:hover {
 
 .p_icon {
 	padding: 0 18px 0 4px;
-/*	color: rgba(119, 119, 119, 1);*/
-/*	width: 2em;*/
-/*	text-align: center;*/
 }
 
 .p_icon_spec {

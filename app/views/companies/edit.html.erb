@@ -1,0 +1,14 @@
+<% @tab_title = "编辑公司" %>
+
+<section id="main" class="container">
+	<header>
+		<h2>编辑公司</h2>
+	</header>
+	
+	<div class="box p_detail box_padding">
+		<%= form_for(@company) do |f| %>
+			<%= render 'company_form', f: f %>
+			
+		<% end %>
+	</div>
+</section>

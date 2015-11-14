@@ -3,11 +3,10 @@
 <section id="main" class="container">
 	<header>
 		<h2>职位录入</h2>
-		<!-- <p>2015.9.25</p> -->
 	</header>
 	
 	<div class="box p_detail box_padding">
-		<%= form_for(@position) do |f| %>
+		<%= form_for(@position, url: company_positions_path) do |f| %>
 			<%= render 'field', f: f %>
 			
 		<% end %>

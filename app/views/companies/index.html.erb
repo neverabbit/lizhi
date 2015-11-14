@@ -1,37 +1,37 @@
-<% @tab_title = "合作申请" %>
+<% @tab_title = "公司列表" %>
 
 <section id="main" class="container">
 	<header>
-		<h2>合作申请</h2>
+		<h2>公司列表</h2>
 	</header>
 	<section class="box special">
 		<%= will_paginate  previous_label: "上一页",
 next_label: "下一页" %>
 		
 		<div class="customers">
-			<% @customers.each do |customer| %>
+			<% @companies.each do |company| %>
 			<div class="box">
-				<p><%= customer.created_at.to_s.gsub(' UTC', '') %></p>
+				<p><%= company.founded_at %></p>
 				<table>
 					<tr>
 						<th>称呼</th>
-						<td><%= customer.name %></td>
+						<td><%= link_to company.name, company_path(company) %></td>
 					</tr>
 					<tr>
 						<th>职位</th>
-						<td><%= customer.position %></td>
+						<td><%= company.address %></td>
 					</tr>
 					<tr>
 						<th>电话</th>
-						<td><%= customer.phone %></td>
+						<td><%= company.scale %></td>
 					</tr>
 					<tr>
 						<th>公司</th>
-						<td><%= customer.company %></td>
+						<td><%= company.property %></td>
 					</tr>
 					<tr>
 						<th>备注</th>
-						<td><%= customer.comment %></td>
+						<td><%= company.stage %></td>
 					</tr>
 
 				</table>

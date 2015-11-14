@@ -12,11 +12,15 @@ Rails.application.routes.draw do
   
   get 'recruit' => 'static_themes#recruit'
   
-  resources :positions
+  resources :companies do 
+    resources :positions
+  end
+  
+  # resources :positions, controller: :companies
   
   resources :customers
   
-  resources :companies
+  
   
   get 'resume_converter' => 'resume_converters#new'
   post 'resume_converters/convert'

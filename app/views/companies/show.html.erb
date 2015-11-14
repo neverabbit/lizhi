@@ -25,11 +25,11 @@
 					<p><span class="icon fa-map-marker p_icon"></span><%= @company.address %></p>
 					<p><span class="icon fa-clock-o p_icon_spec2"></span><%= @company.founded_at %></p>
 					
-					<p><%= @company.keyword %></p>
+					<!-- <p><%= @company.keyword %></p> -->
 					<!-- <p><%= @company.comment %></p> -->
 				</div>
 				
-				<p><%= @company.introduction %></p>
+				<!-- <p><%= @company.introduction %></p> -->
 			
 			</div>
 			<div class="5u 12u(mobilep) p_content">
@@ -37,10 +37,20 @@
 			</div>
 		</div>
 		<div class="row">
+			<h4>公司介绍</h4>
 			<p><%= @company.introduction %></p>
 		</div>
 		<div class="row">
-			<p><%= @company.introduction %></p>
+			<h4>团队介绍</h4>
+			<p><%= @company.products %></p>
 		</div>
+		<div class="row">
+			<h4>团队介绍</h4>
+			<p><%= @company.team %></p>
+		</div>
+	</div>
+	
+	<div>
+		<h4>职位列表</h4>
 	</div>
 </section>

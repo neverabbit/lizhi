@@ -16,22 +16,33 @@
 	<div class="3u 12u(mobilep)">
 		<%= f.label :founded_at, "创建时间" %>
 		<%= f.select :founded_at, (Time.zone.now.year-50..Time.zone.now.year).to_a.reverse, class: "form-control" %>
-		<!-- <%= f.date_select :founded_at, discard_date: true, discard_month: true, start_year: 1970, end_year: Date.today.year, include_blank: true, class: "form-control" %> -->
 	</div>
 
 	<div class="3u 12u(mobilep)">
-		<%= f.label :property, "入职金（千）" %>
+		<%= f.label :property, "性质" %>
 		<%= f.select :property, company_properties, class: "form-control" %>
 	</div>
-	<!-- ['国有', '私营', '合资'] -->
-	<div class="6u 12u(mobilep)">
+	<div class="3u 12u(mobilep)">
 		<%= f.label :scale, "规模" %>
 		<%= f.select :scale, company_scale, class: "form-control" %>
+	</div>
+	<div class="3u 12u(mobilep)">
+		<%= f.label :stage, "融资阶段" %>
+		<%= f.select :stage, company_stage, class: "form-control" %>
 	</div>
 </div>
 
 	<%= f.label :keyword, "关键词（关键词用空格分隔）" %>
 	<%= f.text_field :keyword, class: "form-control" %>
+	
+	<%= f.label :introduction, "公司介绍" %>
+	<%= f.text_area :introduction, class: "form-control" %>
+	
+	<%= f.label :products, "产品介绍" %>
+	<%= f.text_area :products, class: "form-control" %>
+	
+	<%= f.label :team, "团队介绍" %>
+	<%= f.text_area :team, class: "form-control" %>
 	
 	<%= f.label :comment, "备注" %>
 	<%= f.text_area :comment, class: "form-control" %>

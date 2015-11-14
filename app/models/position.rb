@@ -4,6 +4,8 @@ class Position < ActiveRecord::Base
   # serialize :requirements
   # serialize :comments
   
+  belongs_to :company
+  
   validates :name, presence: true, length: { maximum: 50 }
   validates :bonus, presence: true #, FILL
   validates :salary_top, :salary_bottom, presence: true #, #FILL

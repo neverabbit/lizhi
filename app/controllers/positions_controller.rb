@@ -1,7 +1,8 @@
 class PositionsController < ApplicationController
   
   def new
-    @position = Position.new
+    @company = Company.find(params[:company_id])
+    @position = @company.positions.new
   end
   
   def create

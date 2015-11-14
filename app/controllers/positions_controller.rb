@@ -6,8 +6,11 @@ class PositionsController < ApplicationController
   end
   
   def create
-    @position = Position.new(position_params)
-    @position[:remaining] = @position[:demanding] - @position[:entry]
+    @company = Company.find(params[:company_id])
+    # @position = Position.new(position_params)
+    # @position[:entry] = 0
+    # @position[:remaining] = @position[:demanding]
+    @position = @company.positions.build(position_params)
     # @position[:keyword] = @position[:keyword].split(' ')
     if @position.save
       redirect_to @position

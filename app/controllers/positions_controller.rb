@@ -11,9 +11,15 @@ class PositionsController < ApplicationController
     # @position[:entry] = 0
     # @position[:remaining] = @position[:demanding]
     @position = @company.positions.build(position_params)
+    @position[:entry] = 0
+    @position[:recommended] = 0
+    @position[:interviewee] = 0
+    @position[:status] = '上线'
+    @position[:remaining] = @position[:demanding]
+    
     # @position[:keyword] = @position[:keyword].split(' ')
     if @position.save
-      redirect_to @position
+      redirect_to company_position_path(@company, @position)
     else
       render 'new'
     end
@@ -26,7 +32,8 @@ class PositionsController < ApplicationController
   end
   
   def show
-    @position = Position.find(params[:id])
+    @company = Company.find(params[:company_id])
+    @position = @company.positions.find(params[:id])
   end
   
   def index

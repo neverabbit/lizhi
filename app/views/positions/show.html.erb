@@ -22,7 +22,7 @@
 								<div id="basic_info">
 									<!-- <b>基本信息</b><br> -->
 									<p><span class="icon fa-rmb p_icon"></span><%= @position.salary_bottom %> - <%= @position.salary_top %>万</p>
-									<p><span class="icon fa-map-marker p_icon"></span><%= @position.address %></p>
+									<p><span class="icon fa-map-marker p_icon"></span><%= @position.city + @position.address %></p>
 									<p><span class="icon fa-sitemap p_icon_spec"></span><%= @position.department %> |
 									汇报 <span class="icon fa-angle-right"></span> <%= @position.report_to %></p>
 									<p><span class="icon fa-graduation-cap p_icon_spec1"></span><%= @position.education %></p>
@@ -77,13 +77,13 @@
 							
 							<div class="5u 12u(mobilep) p_aside">
 								<div id="p_company" class="box_padding">
-									<p class="p_title">XXXXXXX公司<%= link_to "公司详情", company_path(1), class: "button" %></p>
+									<p class="p_title"><%= @company.name %><%= link_to "公司详情", company_path(@company), class: "button" %></p>
 									<!-- <p><%= link_to "XXXXXXX公司", 'companies/1' %><p> -->
-									<p>公司人数：30-50</p>
-									<p>公司性质： 私营</p>
+									<p>公司规模： <%= @company.scale %></p>
+									<p>公司性质： <%= @company.property %></p>
 									<p>工作节奏： 做五休二</p>
 									<!-- <p class="p_title">公司简介：</p> -->
-									<p> 我们为全球汉语学习者提供服务，我们致力于汉语文化的传播。公司成立于2012年，现有30人左右的创业团队，在互联网技术领域和对外汉语行业领域有着资深的背景和业界广泛关系，是中国目前唯一的全终端的对外汉语教学平台。</p>
+									<p><%= @company.introduction[0..100] + " . . ." %></p>
 									<!-- <span>公司简介： 做五休二</span><br> -->
 									<!-- <a id="expand_company" class="button special icon fa-plus" href="#">展开详情</a> -->
 									<!-- <input type="button" id="expand_company" class="button icon fa-plus" value="展开详情"> -->
@@ -102,48 +102,50 @@
 					</div>
 				</section>
 				<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=fCbQrRfCxwoNGniE995RWGdu"></script>
-							<script type="text/javascript">
-								// 百度地图API功能
-								var map = new BMap.Map("maptool");    // 创建Map实例
-								map.centerAndZoom(new BMap.Point(121.48023, 31.23634), 11);  // 初始化地图,设置中心点坐标和地图级别
-								// map.addControl(new BMap.MapTypeControl());   //添加地图类型控件
-								map.setCurrentCity("上海");          // 设置地图显示的城市 此项是必须设置的
-								map.enableScrollWheelZoom(true);     //开启鼠标滚轮缩放
-								var myGeo = new BMap.Geocoder();      
-								// 将地址解析结果显示在地图上，并调整地图视野    
-								myGeo.getPoint("民生路1199弄", function(point){      
-						          if (point) {      
-						              map.centerAndZoom(point, 14);      
-						              map.addOverlay(new BMap.Marker(point));      
-						          }      
-								}, "上海市");
-				
-								// var transit = new BMap.TransitRoute(map, {
-				// 				  renderOptions: {map: map, panel: "results"}
-				// 				  });
-				// 				transit.search("江苏路地铁站", "民生路1199弄");
-								// var start = "江苏路地铁站";
-								var end = "证大五道口广场";
-								$("#transit_result").click(function(){
-									map.clearOverlays(); 
-									var start = $("#start_point").val();
-									var transit = new BMap.TransitRoute(map, {renderOptions:{map: map, panel: "r-result", autoViewport: true},policy: BMAP_TRANSIT_POLICY_LEAST_TIME});
-									transit.search(start,end);
-								});
-								$("#driving_result").click(function(){
-									map.clearOverlays(); 
-									var start = $("#start_point").val();
-									var driving = new BMap.DrivingRoute(map, {renderOptions:{map: map, panel: "r-result", autoViewport: true},policy: BMAP_DRIVING_POLICY_LEAST_TIME});
-									driving.search(start,end);
-								});
-							</script>
-							<script>
-								$("#start_point").focus(function(){
-									// alert(1);
-									$("#start_point").attr("placeholder", "");
-								});
-								$("#start_point").blur(function(){
-									// alert(1);
-									$("#start_point").attr("placeholder", "输入起点可查询到该公司的路线");
-								});
-							</script>
+				<script type="text/javascript">
+					// 百度地图API功能
+					var map = new BMap.Map("maptool");    // 创建Map实例
+					map.centerAndZoom(new BMap.Point(121.48023, 31.23634), 11);  // 初始化地图,设置中心点坐标和地图级别
+					// map.addControl(new BMap.MapTypeControl());   //添加地图类型控件
+					alert(1)
+					alert(<%= @position.city.class %>)
+					map.setCurrentCity(<%= @position.city %>);          // 设置地图显示的城市 此项是必须设置的
+					map.enableScrollWheelZoom(true);     //开启鼠标滚轮缩放
+					var myGeo = new BMap.Geocoder();      
+					// 将地址解析结果显示在地图上，并调整地图视野    
+					myGeo.getPoint("民生路1199弄", function(point){      
+			          if (point) {      
+			              map.centerAndZoom(point, 14);      
+			              map.addOverlay(new BMap.Marker(point));      
+			          }      
+					}, "上海市");
+	
+					// var transit = new BMap.TransitRoute(map, {
+	// 				  renderOptions: {map: map, panel: "results"}
+	// 				  });
+	// 				transit.search("江苏路地铁站", "民生路1199弄");
+					// var start = "江苏路地铁站";
+					var end = "证大五道口广场";
+					$("#transit_result").click(function(){
+						map.clearOverlays(); 
+						var start = $("#start_point").val();
+						var transit = new BMap.TransitRoute(map, {renderOptions:{map: map, panel: "r-result", autoViewport: true},policy: BMAP_TRANSIT_POLICY_LEAST_TIME});
+						transit.search(start,end);
+					});
+					$("#driving_result").click(function(){
+						map.clearOverlays(); 
+						var start = $("#start_point").val();
+						var driving = new BMap.DrivingRoute(map, {renderOptions:{map: map, panel: "r-result", autoViewport: true},policy: BMAP_DRIVING_POLICY_LEAST_TIME});
+						driving.search(start,end);
+					});
+				</script>
+				<script>
+					$("#start_point").focus(function(){
+						// alert(1);
+						$("#start_point").attr("placeholder", "");
+					});
+					$("#start_point").blur(function(){
+						// alert(1);
+						$("#start_point").attr("placeholder", "输入起点可查询到该公司的路线");
+					});
+				</script>

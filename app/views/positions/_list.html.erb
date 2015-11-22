@@ -1,0 +1,18 @@
+<% company = position.company %>
+<div class="box position_list">
+	<div class="row">	
+		<div class="7u 12u(narrower) p_content">
+			<p><span class="p_title"><%= link_to position.name, company_position_path(company, position) %></span><span> [<%= position.city %>]</span><span class="basic_right"><%= position.created_at.to_date %></span></p>
+			<p><%= position.salary_bottom %> - <%= position.salary_top %>万<span class="basic_right"><%= position.experience %> | <%= position.education %></span></p>
+			<p><% position.keyword.split(' ').each do |k| %><span class='keyword'><%= k %></span><% end %></p>
+		</div>
+		<div class="5u 12u(narrower) p_aside">
+			<div class="box_padding">
+				
+				<p class="p_content"><%= link_to company.name, company_path(company) %></p>
+				<p><span class="icon fa-university p_icon_spec"></span><span class="fix_width"><%= company.property %></span><span class="icon fa-users p_icon_spec"></span><%= company.scale %></p>
+				<p><span class="icon fa-history p_icon_spec2"></span><span class="fix_width"><%= company.founded_at %></span><span class="icon fa-at p_icon_spec2"></span><%= company.stage %></p>
+			</div>
+		</div>
+	</div>
+</div>

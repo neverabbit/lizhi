@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151109102948) do
+ActiveRecord::Schema.define(version: 20151121154746) do
 
   create_table "companies", force: :cascade do |t|
     t.string   "name",         limit: 255
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20151109102948) do
     t.text     "products",     limit: 65535
     t.text     "team",         limit: 65535
     t.string   "stage",        limit: 255
+    t.string   "worktime",     limit: 255
   end
 
   create_table "customers", force: :cascade do |t|
@@ -71,6 +72,31 @@ ActiveRecord::Schema.define(version: 20151109102948) do
   end
 
   add_index "positions", ["company_id"], name: "index_positions_on_company_id", using: :btree
+
+  create_table "users", force: :cascade do |t|
+    t.string   "phone",           limit: 255
+    t.string   "name",            limit: 255
+    t.string   "email",           limit: 255
+    t.string   "city",            limit: 255
+    t.text     "quality",         limit: 65535
+    t.string   "position",        limit: 255
+    t.string   "start_year",      limit: 255
+    t.string   "birthday",        limit: 255
+    t.string   "gender",          limit: 255
+    t.string   "marriage",        limit: 255
+    t.string   "hometown",        limit: 255
+    t.integer  "salary",          limit: 4
+    t.string   "password_digest", limit: 255
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+    t.boolean  "isadmin"
+  end
+
+  add_index "users", ["city"], name: "index_users_on_city", using: :btree
+  add_index "users", ["email"], name: "index_users_on_email", using: :btree
+  add_index "users", ["isadmin"], name: "index_users_on_isadmin", using: :btree
+  add_index "users", ["name"], name: "index_users_on_name", using: :btree
+  add_index "users", ["phone"], name: "index_users_on_phone", using: :btree
 
   add_foreign_key "positions", "companies"
 end

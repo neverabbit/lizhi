@@ -1,4 +1,7 @@
 class PositionsController < ApplicationController
+  include PositionsHelper
+  
+  before_action :logged_in_user, only: [:new, :edit, :update, :delete]
   
   def new
     @company = Company.find(params[:company_id])
@@ -34,9 +37,12 @@ class PositionsController < ApplicationController
   def show
     @company = Company.find(params[:company_id])
     @position = @company.positions.find(params[:id])
+
   end
   
   def index
+    # @positions = Position.all
+    @positions = Position.order('created_at DESC').paginate(page: params[:page])
   end
   
   def destroy

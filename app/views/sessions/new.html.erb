@@ -1,0 +1,18 @@
+<% @tab_title = "登陆" %>
+
+<section id="main" class="container">
+	<header>
+		<h2>登陆</h2>
+		<p>仅供内部使用</p>
+	</header>
+
+	<%= form_for(:session, url: loginlz_path) do |f| %> 
+		<%= f.label :phone, "手机号" %>
+		<%= f.text_field :phone %>
+		<%= f.label :password, "密码" %>
+		<%= f.password_field :password %>
+		<%= f.submit "登陆", class: "button" %>
+	<% end %>
+	<!-- <p>新用户? <%= link_to "立即注册!", signup_path %></p> -->
+	
+</section>

@@ -6,7 +6,7 @@ class Position < ActiveRecord::Base
   
   belongs_to :company
   
-  validates :name, presence: true, length: { maximum: 50 }
+  validates :name, presence: true, length: { maximum: 50 }, uniqueness: { scope: :company }
   validates :bonus, presence: true #, FILL
   validates :salary_top, :salary_bottom, presence: true #, #FILL
   validates :salary_top, numericality: { greater_than_or_equal_to: lambda{ |position| position.salary_bottom } }

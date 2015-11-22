@@ -1,5 +1,8 @@
 class CompaniesController < ApplicationController
   include CompaniesHelper
+  # include UsersController
+  
+  before_action :logged_in_user, only: [:new, :edit, :update, :delete]
   
   def new
     @company = Company.new
@@ -9,17 +12,8 @@ class CompaniesController < ApplicationController
     @company = Company.new(company_params)
     if @company.save
       render @company
-      # respond_to do |format|
-#         format.html { redirect_to new_company_path }
-#         format.js
-#       end
     else
       render 'new'
-      # respond_to do |format|
-#         format.html { redirect_to new_company_path }
-#         format.js
-#       end
-      # render 'new'
     end
   end
   
@@ -47,6 +41,6 @@ class CompaniesController < ApplicationController
   private
   
   def company_params
-    params.require(:company).permit(:name, :property, :introduction, :scale, :address, :founded_at, :keyword, :comment, :products, :team, :stage)
+    params.require(:company).permit(:name, :property, :introduction, :scale, :address, :founded_at, :keyword, :comment, :products, :team, :stage, :worktime)
   end
 end

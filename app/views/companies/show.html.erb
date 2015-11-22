@@ -3,18 +3,27 @@
 <section id="main" class="container">
 	<header>
 		<h2><%= @company.name %></h2>
-		<!-- <p><%= @company.created_at.to_date %></p> -->
 	</header>
 	<div class="box p_detail box_padding">
 		<div class="row">
-			<div class="7u 12u(mobilep) p_content">
+			<div class="7u 12u(narrower) p_content">
 				<div id="status">
 					<table class="">
 						<tr>
-							<td><%= 1 %> 推荐</td>
-							<td><%= 2 %> 面试</td>
-							<td><%= 3 %> 入职</td>
-							<td><%= 4 %> 空岗</td>
+							<% remaining = 0 %>
+							<% recommended = 0 %>
+							<% interviewee = 0 %>
+							<% entry = 0 %>
+							<% @company.positions.each do |p| %>
+								<% recommended += p.recommended %>
+								<% interviewee += p.interviewee %>
+								<% entry += p.entry %>
+								<% remaining += p.remaining %>
+							<% end %>
+							<td><%= recommended %> 推荐</td>
+							<td><%= interviewee %> 面试</td>
+							<td><%= entry %> 入职</td>
+							<td><%= remaining %> 空岗</td>
 						</tr> 
 					</table>
 				</div>
@@ -23,7 +32,10 @@
 					
 					<p><span class="icon fa-users p_icon_spec"></span><%= @company.scale %></p>
 					<p><span class="icon fa-map-marker p_icon"></span><%= @company.address %></p>
-					<p><span class="icon fa-clock-o p_icon_spec2"></span><%= @company.founded_at %></p>
+					<p><span class="icon fa-history p_icon_spec2"></span><%= @company.founded_at %></p>
+					<p><span class="icon fa-at p_icon_spec2"></span><%= @company.stage %></p>
+					<p><span class="icon fa-clock-o p_icon_spec2"></span><%= @company.worktime %></p>
+					
 					
 					<!-- <p><%= @company.keyword %></p> -->
 					<!-- <p><%= @company.comment %></p> -->
@@ -32,21 +44,27 @@
 				<!-- <p><%= @company.introduction %></p> -->
 			
 			</div>
-			<div class="5u 12u(mobilep) p_content">
-				<span class="icon fa-tags p_icon_spec"></span><% @company.keyword.split(' ').each do |k| %><span class='keyword'><%= k %></span><% end %>
+			<div class="5u 12u(narrower) p_content">
+				<div class="keyword_area">
+					<!-- <span class="icon fa-tags p_icon_spec"></span> -->
+					<% @company.keyword.split(' ').each do |k| %>
+						<span class='keyword'><%= k %></span>
+					<% end %>
+				</div>
 			</div>
 		</div>
 		<div class="row">
-			<h4>公司介绍</h4>
-			<p><%= @company.introduction %></p>
-		</div>
-		<div class="row">
-			<h4>团队介绍</h4>
-			<p><%= @company.products %></p>
-		</div>
-		<div class="row">
-			<h4>团队介绍</h4>
-			<p><%= @company.team %></p>
+			<div class="p_content">
+				<div class="box box_padding">
+					<p class="p_title">公司介绍</p>
+					<p><%= @company.introduction %></p>
+					<p><span class="icon fa-link icon_center"></span>
+					<p class="p_title">产品介绍</p>
+					<p><%= @company.products %></p>
+					<p><span class="icon fa-link icon_center"></span>
+					<p class="p_title">团队介绍</p>
+					<p><%= @company.team %></p>
+				</div>
 		</div>
 	</div>
 	

@@ -8,6 +8,15 @@
 						<ul>
 							<li><%= link_to '首页', root_url %></li>
 							<li><%= link_to '商务合作', business_path %></li>
+							<% if logged_in? %>
+							<li>
+								<%= link_to "账户", "#", class: "icon fa-angle-down" %>
+									<ul>
+										<li><%= link_to '主页', user_path(current_user) %>
+										<li><%= link_to '退出', logout_path, method: "delete" %></li>
+									</ul>
+							</li>
+							<% end %>
 							<li>
 								<!-- <a href="#", class="icon fa-angle-down">关于LEADS</a> -->
 								<%= link_to "关于LEADS", "#", class: "icon fa-angle-down" %>

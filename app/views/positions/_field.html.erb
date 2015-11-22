@@ -76,33 +76,17 @@
 	
 	<div class="3u 12u(mobilep)">
 		<%= f.label :consultant, "负责顾问" %>
-		<%= f.select :consultant, ['Lisa'], class: "form-control" %>
+		<%= f.select :consultant, consultant_list, class: "form-control" %>
 	</div>
 </div>
 
-	<%= f.label :keyword, "关键词（关键词用空格分隔）" %>
-	<%= f.text_field :keyword, class: "form-control" %>
-
-
-
-<!-- <%= f.label :recommended, "推荐人数" %>
-<%= f.text_field :recommended, value: "0", class: "form-control" %>
-
-<%= f.label :interviewee, "面试人数" %>
-<%= f.text_field :interviewee, value: "0", class: "form-control" %>
-
-<%= f.label :entry, "已入职人数" %>
-<%= f.text_field :entry, value: "0", class: "form-control" %> -->
+<%= f.label :keyword, "关键词（关键词用空格分隔）" %>
+<%= f.text_field :keyword, class: "form-control" %>
 
 <%= f.label :responsibility, "岗位职责" %>
 <%= f.text_area :responsibility, class: "form-control" %>
 
 <%= f.label :requirement, "任职要求" %>
 <%= f.text_area :requirement, class: "form-control" %>
-
-
-
-<!-- <%= f.label :status, "岗位状态" %>
-<%= f.select :status, ['打开', '暂停', '关闭'], class: "form-control" %> -->
 
 <%= f.submit "确定", class: "button" %>

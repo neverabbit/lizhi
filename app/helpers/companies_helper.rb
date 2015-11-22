@@ -9,6 +9,6 @@ module CompaniesHelper
   end
   
   def company_stage
-    return ['无', '天使轮', 'A 轮', 'B 轮', 'C 轮', '上市']
+    return ['无需融资', '种子轮', '天使轮', 'A 轮', 'B 轮', 'C 轮', 'D轮', 'E轮', '上市']
   end
 end

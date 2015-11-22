@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   
+  get 'users/new'
+
+  # get 'sessions/new'
+
   root 'static_themes#home'
   
   # get 'static_themes/home'
@@ -12,9 +16,18 @@ Rails.application.routes.draw do
   
   get 'recruit' => 'static_themes#recruit'
   
+  get 'signup'  => 'users#new'
+  
+  get 'loginlz' => 'sessions#new'
+  post 'loginlz' => 'sessions#create'
+  get 'logout' => 'sessions#destroy'
+  
+  resources :users
+  
   resources :companies do 
     resources :positions
   end
+  get 'positions' => 'positions#index'
   
   # resources :positions, controller: :companies
   

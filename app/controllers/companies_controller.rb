@@ -11,7 +11,7 @@ class CompaniesController < ApplicationController
   def create 
     @company = Company.new(company_params)
     if @company.save
-      render @company
+      redirect_to @company
     else
       render 'new'
     end
@@ -19,6 +19,7 @@ class CompaniesController < ApplicationController
   
   def show 
     @company = Company.find(params[:id])
+    @positions = @company.positions.order('created_at DESC').paginate(page: params[:page])
   end
   
   def edit

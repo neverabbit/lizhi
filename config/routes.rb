@@ -27,7 +27,8 @@ Rails.application.routes.draw do
   resources :companies do 
     resources :positions
   end
-  get 'positions' => 'positions#index'
+  # get 'positions' => 'positions#index'
+  resources :positions
   
   # resources :positions, controller: :companies
   

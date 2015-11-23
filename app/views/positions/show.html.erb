@@ -1,4 +1,5 @@
 <% @tab_title = "职位详情" %>
+<% @company = @position.company %>
 
 <section id="main" class="container">
 	<header>
@@ -48,7 +49,7 @@
 					<p>工作节奏： <%= @company.worktime %></p>
 					<!-- <p class="p_title">公司简介：</p> -->
 					<p><%= @company.introduction[0..100] + " . . ." %>
-					<%= link_to "公司详情", company_path(@company), class: "button" %></p>
+					<!-- <%= link_to "公司详情", company_path(@company), class: "button" %> --></p>
 				</div>
 				
 				<div id="maptool"></div>
@@ -63,7 +64,7 @@
 		</div>
 	</div>
 </section>
-<script type='text/javascript' src='http://api.map.baidu.com/api?v=2.0&ak=fCbQrRfCxwoNGniE995RWGdu'></script>
+<!-- <script type='text/javascript' src='http://api.map.baidu.com/api?v=2.0&ak=fCbQrRfCxwoNGniE995RWGdu'></script> -->
 
 
 <%= javascript_tag do %>
@@ -76,11 +77,9 @@
 
 <script>
 	$("#start_point").focus(function(){
-		// alert(1);
 		$("#start_point").attr("placeholder", "");
 	});
 	$("#start_point").blur(function(){
-		// alert(1);
 		$("#start_point").attr("placeholder", "输入起点可查询到该公司的路线");
 	});
 </script>

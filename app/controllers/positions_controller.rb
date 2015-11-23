@@ -22,7 +22,7 @@ class PositionsController < ApplicationController
     
     # @position[:keyword] = @position[:keyword].split(' ')
     if @position.save
-      redirect_to company_position_path(@company, @position)
+      redirect_to @position # company_position_path(@company, @position)
     else
       render 'new'
     end
@@ -35,8 +35,9 @@ class PositionsController < ApplicationController
   end
   
   def show
-    @company = Company.find(params[:company_id])
-    @position = @company.positions.find(params[:id])
+    # @company = Company.find(params[:company_id])
+    # @position = @company.positions.find(params[:id])
+    @position = Position.find(params[:id])
 
   end
   

@@ -35,26 +35,13 @@
 					<p><span class="icon fa-history p_icon_spec2"></span><%= @company.founded_at %></p>
 					<p><span class="icon fa-at p_icon_spec2"></span><%= @company.stage %></p>
 					<p><span class="icon fa-clock-o p_icon_spec2"></span><%= @company.worktime %></p>
+					<p><span class="icon fa-tags p_icon_spec"></span><% @company.keyword.split(' ').each do |k| %><span class='keyword'><%= k %></span><% end %></p>
 					
 					
 					<!-- <p><%= @company.keyword %></p> -->
 					<!-- <p><%= @company.comment %></p> -->
 				</div>
 				
-				<!-- <p><%= @company.introduction %></p> -->
-			
-			</div>
-			<div class="5u 12u(narrower) p_content">
-				<div class="keyword_area">
-					<!-- <span class="icon fa-tags p_icon_spec"></span> -->
-					<% @company.keyword.split(' ').each do |k| %>
-						<span class='keyword'><%= k %></span>
-					<% end %>
-				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="p_content">
 				<div class="box box_padding">
 					<p class="p_title">公司介绍</p>
 					<p><%= @company.introduction %></p>
@@ -65,10 +52,30 @@
 					<p class="p_title">团队介绍</p>
 					<p><%= @company.team %></p>
 				</div>
+				
+				<!-- <p><%= @company.introduction %></p> -->
+			
+			</div>
+			<div class="5u 12u(narrower) p_content">
+				<div>
+					<%= will_paginate @positions, previous_label: "上一页",
+			next_label: "下一页" %>
+					<div class="box box_padding position_aside">
+						<% @positions.each do |position| %>
+							<%= render 'positions/list_position', position: position %>
+						<% end %>
+					</div>
+						<%= will_paginate @positions, previous_label: "上一页",
+				next_label: "下一页" %>
+				</div>
+				<% if logged_in? %>
+					<%= link_to "添加职位", new_company_position_path(@company), class: "button button_right" %>
+				
+				<% end %>
+			</div>
 		</div>
+		
 	</div>
 	
-	<div>
-		<h4>职位列表</h4>
-	</div>
+	
 </section>

@@ -29,9 +29,17 @@ class PositionsController < ApplicationController
   end
   
   def edit
+    @position = Position.find(params[:id])
+    # @company = @position.company
   end
   
   def update
+    @position = Position.find(params[:id])
+    if @position.update_attributes(position_params)
+      redirect_to @position
+    else
+      render 'edit'
+    end
   end
   
   def show
@@ -47,6 +55,10 @@ class PositionsController < ApplicationController
   end
   
   def destroy
+    position = Position.find(params[:id])
+    position.destroy
+    flash[:success] = position.name + "已删除"
+    redirect_to positions_url
   end
   
   private

@@ -39,9 +39,16 @@ class CompaniesController < ApplicationController
     @companies = Company.paginate(page: params[:page])
   end
   
+  def destroy
+    company = Company.find(params[:id])
+    company.destroy
+    flash[:success] = company.realname + "公司已删除"
+    redirect_to companies_url
+  end
+  
   private
   
   def company_params
-    params.require(:company).permit(:name, :property, :introduction, :scale, :address, :founded_at, :keyword, :comment, :products, :team, :stage, :worktime)
+    params.require(:company).permit(:realname, :name, :property, :introduction, :scale, :address, :founded_at, :keyword, :comment, :products, :team, :stage, :worktime)
   end
 end

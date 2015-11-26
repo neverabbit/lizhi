@@ -22,9 +22,13 @@
 </div>
 
 <div class="row">
-	<div class="3u 12u(mobilep)">
+	<!-- <div class="3u 12u(mobilep)">
 		<%= f.label :city, "城市" %>
 		<%= f.select :city, ['上海', '北京', '深圳', '广州'], class: "form-control" %>
+	</div> -->
+	<div class="3u 12u(mobilep)">
+		<%= f.label :city, "城市" %>
+		<%= f.select :city, ['上海', '北京', '深圳', '广州'], class: "form-control", :onchange => "$('#position_city').replaceWith([])" %>
 	</div>
 	<div class="3u 12u(mobilep)">
 		<%= f.label :district, "区域" %>

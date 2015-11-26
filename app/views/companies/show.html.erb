@@ -3,6 +3,12 @@
 <section id="main" class="container">
 	<header>
 		<h2><%= @company.name %></h2>
+		<% if logged_in? %>
+			<p><%= @company.realname %></p><br><br>
+			<%= link_to "编辑", edit_company_path(@company), class: 'button small' %>
+			<!-- <%= link_to "删除", @company, method: :delete, data: { confirm: "确定删除 " + @company.realname }, class: "button small" %> -->
+		<% end %>
+		
 	</header>
 	<div class="box p_detail box_padding">
 		<div class="row">
@@ -44,13 +50,13 @@
 				
 				<div class="box box_padding">
 					<p class="p_title">公司介绍</p>
-					<p><%= @company.introduction %></p>
+					<p><%= simple_format(@company.introduction) %></p>
 					<p><span class="icon fa-link icon_center"></span>
 					<p class="p_title">产品介绍</p>
-					<p><%= @company.products %></p>
+					<p><%= simple_format(@company.products) %></p>
 					<p><span class="icon fa-link icon_center"></span>
 					<p class="p_title">团队介绍</p>
-					<p><%= @company.team %></p>
+					<p><%= simple_format(@company.team) %></p>
 				</div>
 				
 				<!-- <p><%= @company.introduction %></p> -->

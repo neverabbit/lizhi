@@ -5,6 +5,12 @@
 	<header>
 		<h2><%= @position.name %></h2>
 		<p><%= @position.created_at.to_date %></p>
+		<%= logged_in? %> <%= current_user.name %> <%= @position.consultant %>
+		<% if logged_in? && current_user.name == @position.consultant %>
+			<br><br>
+			<%= link_to "编辑", edit_position_path(@position), class: 'button small' %>
+			<!-- <%= link_to "删除", @company, method: :delete, data: { confirm: "确定删除 " + @company.realname }, class: "button small" %> -->
+		<% end %>
 	</header>
 	<div class="box p_detail box_padding">
 		<div class="row">

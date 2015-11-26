@@ -10,32 +10,8 @@ next_label: "下一页" %>
 		
 		<div class="customers">
 			<% @companies.each do |company| %>
-			<div class="box">
-				<p><%= company.founded_at %></p>
-				<table>
-					<tr>
-						<th>称呼</th>
-						<td><%= link_to company.name, company_path(company) %></td>
-					</tr>
-					<tr>
-						<th>职位</th>
-						<td><%= company.address %></td>
-					</tr>
-					<tr>
-						<th>电话</th>
-						<td><%= company.scale %></td>
-					</tr>
-					<tr>
-						<th>公司</th>
-						<td><%= company.property %></td>
-					</tr>
-					<tr>
-						<th>备注</th>
-						<td><%= company.stage %></td>
-					</tr>
-
-				</table>
-			</div>
+				<%= render 'list', company: company %>
+			
 			<% end %>
 		</div>
 		<%= will_paginate previous_label: "上一页",

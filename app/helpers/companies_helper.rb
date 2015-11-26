@@ -11,4 +11,8 @@ module CompaniesHelper
   def company_stage
     return ['无需融资', '种子轮', '天使轮', 'A 轮', 'B 轮', 'C 轮', 'D轮', 'E轮', '上市']
   end
+  
+  def worktime_list
+    ['做五休二(9:00-18:00)', '做六休一(9:00-18:00)', '做五休二(10:00-22:00)', '做六休一(10:00-22:00)']
+  end
 end

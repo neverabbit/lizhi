@@ -2,6 +2,8 @@ class ResumeConvertersController < ApplicationController
   
   include ResumeConvertersHelper
   
+  before_action :logged_in_user, only: [:new, :convert]
+  
   def new
   end
   

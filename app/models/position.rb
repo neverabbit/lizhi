@@ -5,6 +5,7 @@ class Position < ActiveRecord::Base
   # serialize :comments
   
   belongs_to :company
+  has_many :recommendations
   
   validates :name, presence: true, length: { maximum: 50 }, uniqueness: { scope: :company }
   validates :bonus, presence: true #, FILL

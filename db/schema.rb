@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151125132738) do
+ActiveRecord::Schema.define(version: 20151128095504) do
 
   create_table "companies", force: :cascade do |t|
     t.string   "name",         limit: 255
@@ -74,6 +74,20 @@ ActiveRecord::Schema.define(version: 20151125132738) do
 
   add_index "positions", ["company_id"], name: "index_positions_on_company_id", using: :btree
 
+  create_table "recommendations", force: :cascade do |t|
+    t.integer  "recommender_id", limit: 4
+    t.integer  "recommendee_id", limit: 4
+    t.integer  "position_id",    limit: 4
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
+
+  add_index "recommendations", ["position_id", "created_at"], name: "index_recommendations_on_position_id_and_created_at", using: :btree
+  add_index "recommendations", ["position_id", "recommender_id", "recommendee_id"], name: "my_index", unique: true, using: :btree
+  add_index "recommendations", ["position_id"], name: "index_recommendations_on_position_id", using: :btree
+  add_index "recommendations", ["recommendee_id"], name: "index_recommendations_on_recommendee_id", using: :btree
+  add_index "recommendations", ["recommender_id"], name: "index_recommendations_on_recommender_id", using: :btree
+
   create_table "users", force: :cascade do |t|
     t.string   "phone",           limit: 255
     t.string   "name",            limit: 255
@@ -91,6 +105,8 @@ ActiveRecord::Schema.define(version: 20151125132738) do
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
     t.boolean  "isadmin"
+    t.string   "status",          limit: 255
+    t.text     "comment",         limit: 65535
   end
 
   add_index "users", ["city"], name: "index_users_on_city", using: :btree

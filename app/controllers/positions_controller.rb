@@ -46,7 +46,8 @@ class PositionsController < ApplicationController
     # @company = Company.find(params[:company_id])
     # @position = @company.positions.find(params[:id])
     @position = Position.find(params[:id])
-
+    @recommender = User.new
+    @recommendee = User.new
   end
   
   def index

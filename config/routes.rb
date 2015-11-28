@@ -38,6 +38,8 @@ Rails.application.routes.draw do
   
   get 'resume_converter' => 'resume_converters#new'
   post 'resume_converters/convert'
+  
+  resources :recommendations, only: [:create, :destroy]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

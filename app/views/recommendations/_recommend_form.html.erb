@@ -1,0 +1,31 @@
+
+<%= form_tag('/recommendations', method: :post, remote: true) do %>
+	<%= hidden_field_tag :position_id, position.id %>
+	
+	<% if !logged_in? %>
+		<%= text_field_tag :recommender_name, nil, id: 'recommender_name', placeholder: '您的称呼 | 必填', required: true, oninvalid: "this.setCustomValidity('请输入您的称呼')", oninput: "setCustomValidity('')" %>
+		<!-- <input type="text" name="title" id="title" placeholder="称呼 | 必填" /> -->
+
+		<%= text_field_tag :recommender_phone, nil, id: 'recommender_phone', placeholder: '您的手机 | 必填' %>
+	<% end %>
+
+	<%= text_field_tag :recommendee_name, nil, id: 'recommendee_name', placeholder: '对方姓名 | 必填', required: true, oninvalid: "this.setCustomValidity('请输入您的称呼')", oninput: "setCustomValidity('')" %>
+
+	<%= text_field_tag :recommendee_phone, nil, id: 'recommendee_phone', placeholder: '对方手机 | 必填', required: true, oninvalid: "this.setCustomValidity('请输入您的电话')", oninput: "setCustomValidity('')" %>
+
+	<%= text_area_tag :comment, nil, id: 'comment', placeholder: '备注 | 可选' %>
+	<!-- <div class="row">
+		<div class="6u 12u(narrower)">
+			<%= button_tag "取消", class: 'button fit' %>
+		</div>
+		<div class="6u 12u(narrower)"> -->
+			<%= submit_tag "提交", class: 'fit special' %>
+		<!-- </div>
+	</div> -->
+	<!-- <input type="submit" value="提交" class="fit" /> -->
+
+	<br>
+	<div id="error_show">
+	</div>
+
+<% end %>

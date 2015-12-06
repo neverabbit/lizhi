@@ -1,0 +1,8 @@
+<% if @recommendation.errors.empty? %>
+	$("#recommendation_form").hide()
+	$("#recommending").show()
+	$("#recommendation_list").html("<%= escape_javascript(render('recommendations/recommend_list', position: @position)) %>")
+	
+<% else %>	
+	$("#error_show").html("<%= escape_javascript(render 'shared/error_messages', object: @recommendation) %>")
+<% end %>

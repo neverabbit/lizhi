@@ -48,6 +48,7 @@ class PositionsController < ApplicationController
     @position = Position.find(params[:id])
     @recommender = User.new
     @recommendee = User.new
+    @recommendation = Recommendation.new
   end
   
   def index

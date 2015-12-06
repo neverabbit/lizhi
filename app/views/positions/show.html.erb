@@ -5,7 +5,6 @@
 	<header>
 		<h2><%= @position.name %></h2>
 		<p><%= @position.created_at.to_date %></p>
-		<%= logged_in? %> <%= current_user.name %> <%= @position.consultant %>
 		<% if logged_in? && current_user.name == @position.consultant %>
 			<br><br>
 			<%= link_to "编辑", edit_position_path(@position), class: 'button small' %>
@@ -43,7 +42,21 @@
 					<%= simple_format(@position.requirement) %>
 				</div>
 				<div id="recommend_form" class="form">
-					<a href="#" class="button special">我要推荐</a>
+					<div id='recommendation_list'>
+						<!-- <%= @position.recommendations.class %> -->
+						<%= render 'recommendations/recommend_list', position: @position %>
+						<!-- <% @position.recommendations.each do |r| %>
+							<p>"<%= r.recommender.name[0] %>先生/女士"于 <%= r.created_at.to_date %> 推荐"<%= r.recommendee.name[0] %>先生/女士"<p>
+						<% end %> -->
+					</div>
+					<!-- <a href="#" class="button special">我要推荐</a> -->
+					<%= link_to '我要推荐',"javascript:void(0)" , class: 'button special', id: 'recommending' %>
+					<div id='recommendation_form'>
+						<%= render '/recommendations/recommend_form', recommendation: @recommendation, position: @position %>
+						<div id="error_show">
+						</div>
+					</div>
+					<!-- <%= @recommender.inspect %> -->
 				</div>
 			</div>		
 			<div class="5u 12u(narrower) p_aside">
@@ -87,5 +100,9 @@
 	});
 	$("#start_point").blur(function(){
 		$("#start_point").attr("placeholder", "输入起点可查询到该公司的路线");
+	});
+	$("#recommending").click(function(){
+		$("#recommendation_form").show()
+		$("#recommending").hide()
 	});
 </script>

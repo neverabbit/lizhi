@@ -2,27 +2,21 @@
 	<div class="row uniform 50%">
 		<div class="6u 12u(mobilep)">
 			<%= f.text_field :name, id: 'name', placeholder: '称呼 | 必填', required: true, oninvalid: "this.setCustomValidity('请输入您的称呼')", oninput: "setCustomValidity('')" %>
-			<!-- <input type="text" name="title" id="title" placeholder="称呼 | 必填" /> -->
 		</div>
 		<div class="6u 12u(mobilep)">
 			<%= f.text_field :position, id: 'position', placeholder: '职务 | 可选' %>
-			<!-- <input type="text" name="position" id="position" placeholder="职务 | 可选" /> -->
 		</div>
 		<div class="6u 12u(mobilep)">
 			<%= f.text_field :phone, id: 'phone', placeholder: '电话 | 必填', required: true, oninvalid: "this.setCustomValidity('请输入您的电话')", oninput: "setCustomValidity('')" %>
-			<!-- <input type="text" name="phone" id="phone" placeholder="电话 | 必填" /> -->
 		</div>
 		<div class="6u 12u(mobilep)">
 			<%= f.text_field :company, id: 'company', placeholder: '公司 | 可选' %>
-			<!-- <input type="text" name="company" id="company" placeholder="公司 | 可选" /> -->
 		</div>
 		<div class="6u 12u(mobilep)">
 			<%= f.text_field :comment, id: 'comment', placeholder: '备注 | 可选' %>
-			<!-- <input type="text" name="comment" id="comment" placeholder="备注 | 可选" /> -->
 		</div>
 		<div class="6u 12u(mobilep)">
 			<%= f.submit "提交", class: 'fit' %>
-			<!-- <input type="submit" value="提交" class="fit" /> -->
 		</div>
 	</div>	
 	

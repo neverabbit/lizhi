@@ -1,0 +1,18 @@
+<div class="box box_padding">
+	<div class="row">
+		<div class="4u 12u(mobile)">
+			<%= recommendation.position.company.realname %>
+		</div>
+		<div class="4u 12u(mobile)">
+			<%= recommendation.position.name %>
+		</div>
+		<div class="4u 12u(mobile)">
+			<%= recommendation.recommendee.name %>
+			<%= recommendation.recommendee.phone %>
+		</div>
+	</div>
+	<div class="row">
+		<%= recommendation.created_at %>
+		<%= recommendation.comment %>
+	</div>
+</div>

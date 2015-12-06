@@ -1,8 +1,6 @@
 <% if @customer.errors.empty? %>
-	$("#new_customer").html("<%= escape_javascript(render 'customers/thankyou') %>")
-	
+	$("#new_customer").html("<%= escape_javascript(render 'customers/thankyou') %>")	
 <% else %>
-	// $("#new_customer").html("<%= escape_javascript(render 'customers/customer_form', customer: @customer) %>")
 	$("#error_show").html("<%= escape_javascript(render 'shared/error_messages', object: @customer) %>")
 
 <% end %>

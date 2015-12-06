@@ -1,0 +1,14 @@
+						<% recommendations = position.recommendations %>
+						<% if recommendations.length <= 3 %>
+							<% recommendations.each do |r| %>
+								<p>"<%= r.recommender.name[0] %>先生/女士"于 <%= r.created_at.to_date %> 推荐"<%= r.recommendee.name[0] %>先生/女士"<p>
+							<% end %>
+						
+						<% else %>
+							...
+							<% recommendations[-3, 3].each do |r| %>
+								<p>"<%= r.recommender.name[0] %>先生/女士" 于 <%= r.created_at.to_date %> 推荐 "<%= r.recommendee.name[0] %>先生/女士"<p>
+							<% end %>
+						
+						<% end %>
+						

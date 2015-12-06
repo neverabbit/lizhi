@@ -1,0 +1,19 @@
+<% @tab_title = "推荐列表" %>
+
+<section id="main" class="container">
+	<header>
+		<h2>推荐列表</h2>
+	</header>
+	<section class="box special">
+		<%= will_paginate  previous_label: "上一页",
+next_label: "下一页" %>
+		<div class="recommendations">
+			<% @recommendations.each do |recommendation| %>
+				<%= render 'list', recommendation: recommendation %>
+			
+			<% end %>
+		</div>
+		<%= will_paginate previous_label: "上一页",
+next_label: "下一页" %>
+	</section>
+</section>

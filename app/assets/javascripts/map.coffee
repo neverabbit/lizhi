@@ -17,13 +17,13 @@ myGeo.getPoint position.address, ((point) ->
     map.centerAndZoom point, 14
     map.addOverlay new (BMap.Marker)(point)
   return
-), '上海市'
+), position.city
 # var transit = new BMap.TransitRoute(map, {
 # 				  renderOptions: {map: map, panel: "results"}
 # 				  });
 # 				transit.search("江苏路地铁站", "民生路1199弄");
 # var start = "江苏路地铁站";
-end = position.address
+end = position.city + position.address
 $('#transit_result').click ->
   map.clearOverlays()
   start = $('#start_point').val()

@@ -4,7 +4,7 @@
 <section id="main" class="container">
 	<header>
 		<h2><%= @position.name %></h2>
-		<p><%= @position.created_at.to_date %></p>
+		<p><%= @position.updated_at.to_date %> | <b>入职金 <%= @position.bonus %> K</b></p>
 		<% if logged_in? && current_user.name == @position.consultant %>
 			<br><br>
 			<%= link_to "编辑", edit_position_path(@position), class: 'button small' %>
@@ -27,7 +27,7 @@
 				<div id="basic_info">
 					<!-- <b>基本信息</b><br> -->
 					<p><span class="icon fa-rmb p_icon"></span><%= @position.salary_bottom %> - <%= @position.salary_top %>万</p>
-					<p><span class="icon fa-money p_icon_spec"></span>入职金 <span class="icon fa-angle-right"></span> <%= @position.bonus %> K</p>
+					<!-- <p><span class="icon fa-money p_icon_spec"></span>入职金 <span class="icon fa-angle-right"></span> <%= @position.bonus %> K</p> -->
 					<p><span class="icon fa-map-marker p_icon"></span><%= @position.city + @position.address %></p>
 					<p><span class="icon fa-sitemap p_icon_spec"></span><%= @position.department %> |
 					汇报 <span class="icon fa-angle-right"></span> <%= @position.report_to %></p>

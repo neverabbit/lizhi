@@ -223,7 +223,7 @@ a:hover {
 .keyword {
 	display: inline-block;
 	padding: 3px 8px;
-	margin: 0 20px 20px 0;
+	margin: 10px 20px 0 0;
 //	border: 1px solid rgba($green-font, 0.5);
 	background-color: $button-background;
 	border-radius: 3px;
@@ -432,8 +432,14 @@ ul.pagination .active a {
 	float: right;
 }
 
+
+// recommendation form
 #recommendation_form {
 	display: none;
+}
+
+#recommendation_form input {
+	margin-bottom: 5px;
 }
 
 

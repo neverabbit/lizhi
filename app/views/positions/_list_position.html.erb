@@ -1,5 +1,5 @@
 
-	<p><span class="p_title"><%= link_to position.name, position_path(position) %></span><span> [<%= position.city %>]</span><span class="basic_right"><%= position.created_at.to_date %></span></p>
+	<p><span class="p_title"><%= link_to position.name, position_path(position) %></span><span> [<%= position.city %>]</span><span class="basic_right"><%= position.updated_at.to_date %></span></p>
 	<p><%= position.salary_bottom %> - <%= position.salary_top %>万 <span class="basic_right">汇报 - <%= position.report_to %></span></p>
-	<p><%= position.bonus %>K 入职金<span class="basic_right"><%= position.experience %> | <%= position.education %></span></p>
+	<p><b><%= position.bonus %>K 入职金</b><span class="basic_right"><%= position.experience %> | <%= position.education %></span></p>
 	<p><% position.keyword.split(' ').each do |k| %><span class='keyword'><%= k %></span><% end %></p>

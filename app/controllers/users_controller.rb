@@ -21,6 +21,11 @@ class UsersController < ApplicationController
     end
   end
   
+  def admin_positions
+    @user = User.find(params[:id])
+    @positions = Position.order('created_at DESC').where("consultant LIKE ?", @user.name).paginate(page: params[:page])
+  end
+  
   private
     def user_params 
       params.require(:user).permit(:phone, :name, :email, :city, :quality, :position, :start_year, :birthday, :gender, :marriage, :hometown, :salary, :password, :password_confirmation)

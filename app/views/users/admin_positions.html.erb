@@ -1,0 +1,18 @@
+<% @tab_title = "我的职位" %>
+
+<section id="main" class="container">
+	<header>
+		<h2>我的职位</h2>
+	</header>
+	<div>
+		<%= will_paginate @positions, previous_label: "上一页",
+next_label: "下一页" %>
+		<div class="positions">
+			<% @positions.each do |position| %>
+				<%= render 'positions/list', position: position %>
+			<% end %>
+		</div>
+			<%= will_paginate @positions, previous_label: "上一页",
+	next_label: "下一页" %>
+	</div>
+</section>

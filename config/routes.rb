@@ -40,6 +40,8 @@ Rails.application.routes.draw do
   post 'resume_converters/convert'
   
   resources :recommendations, only: [:create, :destroy, :index]
+  
+  get 'users/:id/admin_positions', to: 'users#admin_positions', as: :admin_positions
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

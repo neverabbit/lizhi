@@ -4,5 +4,6 @@
 	$("#recommendation_list").html("<%= escape_javascript(render('recommendations/recommend_list', position: @position)) %>")
 	
 <% else %>	
+	<% @recommendation.errors.messages.delete(:password) %>
 	$("#error_show").html("<%= escape_javascript(render 'shared/error_messages', object: @recommendation) %>")
 <% end %>

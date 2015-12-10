@@ -14,15 +14,22 @@ class RecommendationsController < ApplicationController
       unless @recommender = User.find_by(phone: safe_params[:recommender_phone])
         @recommender = User.new({name: safe_params[:recommender_name], phone: safe_params[:recommender_phone], password: safe_params[:recommender_phone][6..11], password_confirmation: safe_params[:recommender_phone][6..11]})
         unless @recommender.save
-          @recommendation_error = @recommender
-          redirect_to @position
+          @recommendation = @recommender
+          respond_to do |format|
+            format.html {redirect_to @recommendation}
+            format.js and return
+          end
         end
       end
       unless @recommendee = User.find_by(phone: safe_params[:recommendee_phone])
         @recommendee = User.new({name: safe_params[:recommendee_name], phone: safe_params[:recommendee_phone], password: safe_params[:recommendee_phone][6..11], password_confirmation: safe_params[:recommendee_phone][6..11]})
         unless @recommendee.save
-          @recommendation_error = @recommendee
-          redirect_to @position
+          @recommendation = @recommendee
+          # @recommendation.errors.messages.delete(:password) # error
+          respond_to do |format|
+            format.html {redirect_to @recommendation}
+            format.js and return
+          end
         end
       end
       recom_params = {recommender_id: @recommender.id, recommendee_id: @recommendee.id, position_id: safe_params[:position_id], comment: safe_params[:comment], status: safe_params[:status]}

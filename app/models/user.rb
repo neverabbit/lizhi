@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
   has_many :recommenders, through: :passive_recommendations
   
   before_save { self.email = email.downcase unless email.nil? }
-  validates :phone, presence: true, length: { is: 11 }, uniqueness: true
+  validates :phone, presence: { message: '手机号不能为空！' }, length: { is: 11, message: '请输入正确的手机号！' }, uniqueness: true
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, length: { maximum: 255 }, allow_blank: true, 
                           format: { with: VALID_EMAIL_REGEX }

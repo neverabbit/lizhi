@@ -19,9 +19,9 @@ class StaticThemesController < ApplicationController
   end
   
   def wechat
-    signature = wechat_params[:signature]
-    timestamp = wechat_params[:timestamp]
-    nonce = wechat_params[:nonce]
+    signature = wechat_params[:signature] || ''
+    timestamp = wechat_params[:timestamp] || ''
+    nonce = wechat_params[:nonce] || ''
     echostr = wechat_params[:echostr]
     
     token = 'vincentinlz2015'

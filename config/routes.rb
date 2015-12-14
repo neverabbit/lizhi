@@ -16,6 +16,8 @@ Rails.application.routes.draw do
   
   get 'recruit' => 'static_themes#recruit'
   
+  get 'wechat' => 'static_themes#wechat'
+  
   get 'signup'  => 'users#new'
   
   get 'loginlz' => 'sessions#new'

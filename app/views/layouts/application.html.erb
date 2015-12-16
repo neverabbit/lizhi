@@ -201,5 +201,24 @@
 
 	})(jQuery);
 	</script>
+	<%= content_for :weixin_api do %>
+	  <script type="text/javascript">
+	    wx.ready(function () {
+	      // 设置“分享给朋友”按钮点击状态及自定义分享内容
+	      wx.onMenuShareAppMessage({
+	        title: "<%= @share_title %>",
+	        desc: "<%= @share_desc %>",
+	        link: "<%= @share_url %>",
+	        imgUrl: "<%= @share_img %>",
+	      });
+	      // 设置“分享到朋友圈”按钮点击状态及自定义分享内容
+	      wx.onMenuShareTimeline({
+	        title: "<%= @share_title %>",
+	        link: "<%= @share_url %>",
+	        imgUrl: "<%= @share_img %>",
+	      });
+	    });
+	  </script>
+	<% end %>
 	<!-- </body> -->
 </html>

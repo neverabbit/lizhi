@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   
   get 'recruit' => 'static_themes#recruit'
   
-  get 'wechat' => 'static_themes#wechat'
+  get 'wechat' => 'wechats#new'
   
   get 'signup'  => 'users#new'
   
@@ -44,6 +44,8 @@ Rails.application.routes.draw do
   resources :recommendations, only: [:create, :destroy, :index]
   
   get 'users/:id/admin_positions', to: 'users#admin_positions', as: :admin_positions
+  
+  resources :wechats
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -1,0 +1,1 @@
+$weixin_client ||= WeixinAuthorize::Client.new(ENV["APPID"], ENV["APPSECRET"])

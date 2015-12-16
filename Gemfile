@@ -41,6 +41,7 @@ gem 'minitest', '5.8.1'
 gem 'font-awesome-rails'
 gem 'CFPropertyList', '2.3.2'
 gem 'docx'
+gem 'weixin_authorize'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

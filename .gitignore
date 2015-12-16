@@ -17,4 +17,4 @@
 *.htm
 
 #Environment variables
-/config/weixin_env.yml
+#/config/weixin_env.yml

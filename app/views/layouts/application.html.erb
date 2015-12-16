@@ -58,27 +58,41 @@
 	        'openCard'
 	      ]
 	    });
-		wx.ready(function () {
-		    // 5.2 图片预览
-		    $('img').click(function () {
-		      var img_src = $(this).prop("src");
-		      wx.previewImage({
-		        current: img_src,
-		        urls: [img_src]
-		      });
-		    });
-		  });
-		  wx.error(function (res) {
-		    // alert(res);
-		  });
-		
+		// wx.ready(function () {
+		//     // 5.2 图片预览
+		//     $('img').click(function () {
+		//       var img_src = $(this).prop("src");
+		//       wx.previewImage({
+		//         current: img_src,
+		//         urls: [img_src]
+		//       });
+		//     });
+		//   });
+		  // wx.error(function (res) {
+		  //   // alert(res);
+		  // });
+  	    wx.ready(function () {
+  	      // 设置“分享给朋友”按钮点击状态及自定义分享内容
+  	      wx.onMenuShareAppMessage({
+  	        title: "<%= @share_title %>",
+  	        desc: "<%= @share_desc %>",
+  	        link: "<%= @share_url %>",
+  	        imgUrl: "<%= @share_img %>",
+  	      });
+  	      // 设置“分享到朋友圈”按钮点击状态及自定义分享内容
+  	      wx.onMenuShareTimeline({
+  	        title: "<%= @share_title %>",
+  	        link: "<%= @share_url %>",
+  	        imgUrl: "<%= @share_img %>",
+  	      });
+  	    });
 	  wx.error(function(res){
 
 	      // config信息验证失败会执行error函数，如签名过期导致验证失败，具体错误信息可以打开config的debug模式查看，也可以在返回的res参数中查看，对于SPA可以在这里更新签名。
 
 	  });
 	  </script>
-	  <%= yield :weixin_api %>
+
 	  <%= csrf_meta_tags %>
 
 	</head>
@@ -201,24 +215,6 @@
 
 	})(jQuery);
 	</script>
-	<%= content_for :weixin_api do %>
-	  <script type="text/javascript">
-	    wx.ready(function () {
-	      // 设置“分享给朋友”按钮点击状态及自定义分享内容
-	      wx.onMenuShareAppMessage({
-	        title: "<%= @share_title %>",
-	        desc: "<%= @share_desc %>",
-	        link: "<%= @share_url %>",
-	        imgUrl: "<%= @share_img %>",
-	      });
-	      // 设置“分享到朋友圈”按钮点击状态及自定义分享内容
-	      wx.onMenuShareTimeline({
-	        title: "<%= @share_title %>",
-	        link: "<%= @share_url %>",
-	        imgUrl: "<%= @share_img %>",
-	      });
-	    });
-	  </script>
-	<% end %>
+	
 	<!-- </body> -->
 </html>

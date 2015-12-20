@@ -1,5 +1,7 @@
 <% @tab_title = "职位详情" %>
 <% @company = @position.company %>
+<% @share_title = @position.name %>
+<% @share_desc = @position.responsibility %>
 
 <section id="main" class="container">
 	<header>
@@ -46,9 +48,6 @@
 					<div id='recommendation_list'>
 						<!-- <%= @position.recommendations.class %> -->
 						<%= render 'recommendations/recommend_list', position: @position %>
-						<!-- <% @position.recommendations.each do |r| %>
-							<p>"<%= r.recommender.name[0] %>先生/女士"于 <%= r.created_at.to_date %> 推荐"<%= r.recommendee.name[0] %>先生/女士"<p>
-						<% end %> -->
 					</div>
 					<!-- <a href="#" class="button special">我要推荐</a> -->
 					<%= link_to '我要推荐',"javascript:void(0)" , class: 'button special', id: 'recommending' %>

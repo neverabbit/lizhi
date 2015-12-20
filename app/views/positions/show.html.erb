@@ -1,7 +1,8 @@
 <% @tab_title = "职位详情" %>
 <% @company = @position.company %>
-<% @share_title = @position.name %>
-<% @share_img = image_url("logo_header0.png") %>
+<% @share_title = @position.weixin_title %>
+<% @share_desc = @position.weixin_desc %>
+<% @share_img = @company.logo_file.url %>
 
 
 <section id="main" class="container">

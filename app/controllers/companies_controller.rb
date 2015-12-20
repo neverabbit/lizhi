@@ -41,6 +41,7 @@ class CompaniesController < ApplicationController
   
   def destroy
     company = Company.find(params[:id])
+    resume.remove_logo_file!
     company.destroy
     flash[:success] = company.realname + "公司已删除"
     redirect_to companies_url

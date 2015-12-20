@@ -1,6 +1,8 @@
 class Company < ActiveRecord::Base
   include CompaniesHelper
   
+  mount_uploader :logo_file, LogoUploader
+  
   has_many :positions
   
   validates :name, :realname, presence: true, length: { maximum: 50 }, uniqueness: true

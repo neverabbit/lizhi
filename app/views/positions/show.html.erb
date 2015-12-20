@@ -2,7 +2,7 @@
 <% @company = @position.company %>
 <% @share_title = @position.weixin_title %>
 <% @share_desc = @position.weixin_desc %>
-<% @share_img = @company.logo_file.url %>
+<% @share_img = image_url(@company.logo_file) %>
 
 
 <section id="main" class="container">

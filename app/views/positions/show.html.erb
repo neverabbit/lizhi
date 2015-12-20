@@ -1,6 +1,7 @@
 <% @tab_title = "职位详情" %>
 <% @company = @position.company %>
 <% @share_title = @position.name %>
+<% @share_img = image_url("logo_header0.png") %>
 
 
 <section id="main" class="container">
@@ -58,6 +59,11 @@
 					</div>
 					<!-- <%= @recommender.inspect %> -->
 				</div>
+				<% if logged_in? %>
+					<br>
+					<p><b>微信标题：</b> <%= @position.weixin_title %></p>
+					<p><b>微信简介：</b> <%= @position.weixin_desc %></p>
+				<% end %>
 			</div>		
 			<div class="5u 12u(narrower) p_aside">
 				<div id="p_company" class="box_padding">

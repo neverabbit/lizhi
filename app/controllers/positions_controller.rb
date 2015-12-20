@@ -65,7 +65,7 @@ class PositionsController < ApplicationController
   
   private
     def position_params
-      params.require(:position).permit(:name, :bonus, :salary_top, :salary_bottom, :city, :district, :address, :department, :report_to, :education, :experience, :age_top, :age_bottom, :keyword, :demanding, :recommended, :interviewee, :entry, :responsibility, :requirement, :consultant, :status)
+      params.require(:position).permit(:name, :bonus, :salary_top, :salary_bottom, :city, :district, :address, :department, :report_to, :education, :experience, :age_top, :age_bottom, :keyword, :demanding, :recommended, :interviewee, :entry, :responsibility, :requirement, :consultant, :status, :weixin_title, :weixin_desc)
     end
   
 end

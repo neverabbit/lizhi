@@ -22,6 +22,8 @@ class Position < ActiveRecord::Base
   validates :recommended, :interviewee, :entry, :remaining, :demanding, :responsibility, :requirement, presence: true
   validates :status, presence: true #, FILL
   validates :consultant, presence: true #, FILL
+  validates :weixin_title, presence: true, length: { maximum: 50 }
+  validates :weixin_desc, presence: true, length: { maximum: 100 }
   
   
   

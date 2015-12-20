@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151128110910) do
+ActiveRecord::Schema.define(version: 20151220083429) do
 
   create_table "companies", force: :cascade do |t|
     t.string   "name",         limit: 255
@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 20151128110910) do
     t.string   "stage",        limit: 255
     t.string   "worktime",     limit: 255
     t.string   "realname",     limit: 255
+    t.string   "logo_file",    limit: 255
   end
 
   create_table "customers", force: :cascade do |t|
@@ -70,6 +71,8 @@ ActiveRecord::Schema.define(version: 20151128110910) do
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
     t.integer  "company_id",     limit: 4
+    t.string   "weixin_title",   limit: 255
+    t.text     "weixin_desc",    limit: 65535
   end
 
   add_index "positions", ["company_id"], name: "index_positions_on_company_id", using: :btree

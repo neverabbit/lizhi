@@ -16,8 +16,5 @@
 /public/converter/output
 *.htm
 
-#Environment variables
-#/config/weixin_env.yml
-
 #uploads
 /public/uploads

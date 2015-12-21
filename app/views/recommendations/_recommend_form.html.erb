@@ -9,9 +9,9 @@
 		<%= text_field_tag :recommender_phone, nil, id: 'recommender_phone', placeholder: '您的手机 | 必填' %>
 	<% end %>
 
-	<%= text_field_tag :recommendee_name, nil, id: 'recommendee_name', placeholder: '对方姓名 | 必填', required: true, oninvalid: "this.setCustomValidity('请输入您的称呼')", oninput: "setCustomValidity('')" %>
+	<%= text_field_tag :recommendee_name, nil, id: 'recommendee_name', placeholder: '对方姓名 | 必填' %>
 
-	<%= text_field_tag :recommendee_phone, nil, id: 'recommendee_phone', placeholder: '对方手机 | 必填', required: true, oninvalid: "this.setCustomValidity('请输入手机号')", oninput: "setCustomValidity('')" %>
+	<%= text_field_tag :recommendee_phone, nil, id: 'recommendee_phone', placeholder: '对方手机 | 必填' %>
 
 	<%= text_area_tag :comment, nil, id: 'comment', placeholder: '备注 | 可选' %>
 	<!-- <div class="row">

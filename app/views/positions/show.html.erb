@@ -52,7 +52,7 @@
 						<%= render 'recommendations/recommend_list', position: @position %>
 					</div>
 					<!-- <a href="#" class="button special">我要推荐</a> -->
-					<%= link_to '我要推荐',"#recommendation_form" , class: 'button special', id: 'recommending' %>
+					<%= link_to '留线索 拿' + @position.bonus.to_s + 'K', "#recommendation_form" , class: 'button special', id: 'recommending' %>
 					<div id='recommendation_form'>
 						<%= render '/recommendations/recommend_form', recommendation: @recommendation, position: @position %>
 						<div id="error_show">

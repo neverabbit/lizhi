@@ -416,6 +416,14 @@ ul.pagination .active a {
 	.position_list .p_aside {
 		display: none;
 	}
+	
+	#recommending {
+		position: fixed;
+		bottom: 0;
+		right: 3%;
+		width: 94% !important;
+		z-index: 999;
+	}
 }
 
 // position list

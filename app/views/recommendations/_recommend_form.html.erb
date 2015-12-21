@@ -1,12 +1,12 @@
 
-<%= form_tag('/recommendations', method: :post, remote: true) do %>
+<%= form_tag('/recommendations', method: :post, remote: true, onSubmit: 'return checkSubmitMobil()') do %>
 	<%= hidden_field_tag :position_id, position.id %>
 	
 	<% if !logged_in? %>
-		<%= text_field_tag :recommender_name, nil, id: 'recommender_name', placeholder: '您的称呼 | 必填', required: true, oninvalid: "this.setCustomValidity('请输入您的称呼')", oninput: "setCustomValidity('')" %>
-		<!-- <input type="text" name="title" id="title" placeholder="称呼 | 必填" /> -->
+		<%= text_field_tag :recommender_name, nil, id: 'recommender_name', placeholder: '您的称呼 | 必填'  %>
+		<!-- required: true, oninvalid: "this.setCustomValidity('请输入您的称呼')", oninput: "setCustomValidity('')" -->
 
-		<%= text_field_tag :recommender_phone, nil, id: 'recommender_phone', placeholder: '您的手机 | 必填', required: true, oninvalid: "this.setCustomValidity('请输入手机号')", oninput: "setCustomValidity('')" %>
+		<%= text_field_tag :recommender_phone, nil, id: 'recommender_phone', placeholder: '您的手机 | 必填' %>
 	<% end %>
 
 	<%= text_field_tag :recommendee_name, nil, id: 'recommendee_name', placeholder: '对方姓名 | 必填', required: true, oninvalid: "this.setCustomValidity('请输入您的称呼')", oninput: "setCustomValidity('')" %>
@@ -31,3 +31,34 @@
 	
 
 <% end %>
+
+<script>
+	function checkSubmitMobil() {
+		if ($("#recommender_phone").val() == "") {
+			alert("手机号码不能为空！");
+			//$("#moileMsg").html("<font color='red'>手机号码不能为空！</font>");
+			$("#recommender_phone").focus();
+			return false;
+		}
+		if ($("#recommendee_phone").val() == "") {
+			alert("手机号码不能为空！");
+			//$("#moileMsg").html("<font color='red'>手机号码不能为空！</font>");
+			$("#recommendee_phone").focus();
+			return false;
+		}
+
+		if (!$("#recommender_phone").val().match(/^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1})|(17[0-9]{1})|(14[0-9]{1}))+\d{8})$/)) {
+			alert("手机号码格式不正确！");
+			//$("#moileMsg").html("<font color='red'>手机号码格式不正确！请重新输入！</font>");
+			$("#recommender_phone").focus();
+			return false;
+		}
+		if (!$("#recommendee_phone").val().match(/^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1})|(17[0-9]{1})|(14[0-9]{1}))+\d{8})$/)) {
+			alert("手机号码格式不正确！");
+			//$("#moileMsg").html("<font color='red'>手机号码格式不正确！请重新输入！</font>");
+			$("#recommendee_phone").focus();
+			return false;
+		}
+		// return true;
+	} 
+</script>

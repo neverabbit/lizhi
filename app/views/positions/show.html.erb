@@ -12,6 +12,13 @@
 		<% if logged_in? && current_user.name == @position.consultant %>
 			<br><br>
 			<%= link_to "编辑", edit_position_path(@position), class: 'button small' %>
+			<!-- <% status = @position.status == "上线" ? "下线" : "上线" %> -->
+			<% if @position.status == "上线" %>
+				<%= render 'offline' %>
+			<% else %>
+				<%= render 'online' %>
+			<% end %>
+			
 			<!-- <%= link_to "删除", @company, method: :delete, data: { confirm: "确定删除 " + @company.realname }, class: "button small" %> -->
 		<% end %>
 	</header>

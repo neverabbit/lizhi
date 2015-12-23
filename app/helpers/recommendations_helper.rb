@@ -20,7 +20,7 @@ module RecommendationsHelper
       when stage_params[5] then content = ""
     end
     
-    mobile = "18501692015"
+    mobile = phone
     # mobile = "18018668022"
     password_orig = "lisainlz"
     password = Digest::MD5::hexdigest(password_orig).upcase

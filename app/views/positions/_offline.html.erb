@@ -1,0 +1,4 @@
+<%= form_for(@position, url: {action: 'offline'}, html: {id: "position_switch", method: :patch}, remote: true) do |f| %>
+	<%= f.submit "下线", class: "btn small" %>
+<% end %>
+

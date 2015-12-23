@@ -63,6 +63,24 @@ class PositionsController < ApplicationController
     redirect_to positions_url
   end
   
+  def offline
+    @position = Position.find(params[:id])
+    @position.update_attributes(status: "下线")
+    respond_to do |format|
+      format.html { redirect_to @position }
+      format.js 
+    end
+  end
+  
+  def online
+    @position = Position.find(params[:id])
+    @position.update_attributes(status: "上线")
+    respond_to do |format|
+      format.html { redirect_to @position }
+      format.js 
+    end
+  end
+  
   private
     def position_params
       params.require(:position).permit(:name, :bonus, :salary_top, :salary_bottom, :city, :district, :address, :department, :report_to, :education, :experience, :age_top, :age_bottom, :keyword, :demanding, :recommended, :interviewee, :entry, :responsibility, :requirement, :consultant, :status, :weixin_title, :weixin_desc)

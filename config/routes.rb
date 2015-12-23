@@ -31,7 +31,11 @@ Rails.application.routes.draw do
   end
   # get 'positions' => 'positions#index'
   resources :positions
-  
+  patch 'positions/:id/offline', to: 'positions#offline', as: :offline_position
+  patch 'positions/:id/online', to: 'positions#online', as: :online_position
+  # get 'positions/offline', to 'positions#offline', as: :offline
+  # get 'positions/online'
+  #
   # resources :positions, controller: :companies
   
   resources :customers
@@ -42,6 +46,7 @@ Rails.application.routes.draw do
   post 'resume_converters/convert'
   
   resources :recommendations, only: [:create, :destroy, :index, :edit, :update, :show]
+  
   
   get 'users/:id/admin_positions', to: 'users#admin_positions', as: :admin_positions
   

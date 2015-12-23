@@ -4,7 +4,7 @@
 	<header>
 		<h2><%= @company.name %></h2>
 		<% if logged_in? %>
-			<%= image_tag(@company.logo_file.url) %>
+			<%= image_tag(@company.logo_file.url) %><br>
 			<p><%= @company.realname %></p><br><br>
 			<%= link_to "编辑", edit_company_path(@company), class: 'button small' %>
 			<!-- <%= link_to "删除", @company, method: :delete, data: { confirm: "确定删除 " + @company.realname }, class: "button small" %> -->

@@ -5,9 +5,10 @@
 		</div> -->
 		<ul class="alert alert-danger">
 			<!-- <%= object.errors.messages.delete(:password) %> -->
-			<% object.errors.each do |attr, msg| %>
-			<li><%= msg %></li>
-			<% end %>
+			<!-- <% object.errors.each do |attr, msg| %>
+			<p><%= msg %></p>
+			<% end %> -->
+			<%= object.errors.first[1] %>
 		</ul>
 	</div>
 <% end %>

@@ -1,5 +1,5 @@
 
-<%= form_tag('/recommendations', method: :post, remote: true, onSubmit: 'return checkSubmitMobil()') do %>
+<%= form_tag('/recommendations', method: :post, remote: true, onSubmit: "return checkSubmitMobil()") do %>
 	<%= hidden_field_tag :position_id, position.id %>
 	
 	<% if !logged_in? %>
@@ -9,7 +9,7 @@
 		<%= text_field_tag :recommender_phone, nil, id: 'recommender_phone', placeholder: '您的手机 | 必填' %>
 	<% end %>
 
-	<%= text_field_tag :recommendee_name, nil, id: 'recommendee_name', placeholder: '对方姓名 | 必填' %>
+	<%= text_field_tag :recommendee_name, nil, id: 'recommendee_name', placeholder: '对方姓名(也可以推荐自己哦，照样有入职金) | 必填' %>
 
 	<%= text_field_tag :recommendee_phone, nil, id: 'recommendee_phone', placeholder: '对方手机 | 必填' %>
 

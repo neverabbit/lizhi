@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151220083429) do
+ActiveRecord::Schema.define(version: 20151223081132) do
 
   create_table "companies", force: :cascade do |t|
     t.string   "name",         limit: 255
@@ -85,6 +85,9 @@ ActiveRecord::Schema.define(version: 20151220083429) do
     t.datetime "updated_at",                   null: false
     t.string   "status",         limit: 255
     t.text     "comment",        limit: 65535
+    t.string   "stage",          limit: 255
+    t.string   "reason",         limit: 255
+    t.text     "history",        limit: 65535
   end
 
   add_index "recommendations", ["position_id", "created_at"], name: "index_recommendations_on_position_id_and_created_at", using: :btree

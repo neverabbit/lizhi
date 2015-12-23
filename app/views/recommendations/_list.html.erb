@@ -1,18 +1,22 @@
 <div class="box box_padding">
 	<div class="row">
 		<div class="4u 12u(mobile)">
-			<%= recommendation.position.company.realname %>
-		</div>
-		<div class="4u 12u(mobile)">
+			<%= recommendation.position.company.realname %><br>
 			<%= recommendation.position.name %>
 		</div>
 		<div class="4u 12u(mobile)">
-			<%= recommendation.recommendee.name %>
+			<%= recommendation.recommendee.name %><br>
 			<%= recommendation.recommendee.phone %>
+		</div>
+		<div class="4u 12u(mobile)">
+			<%= recommendation.stage %>
+			<%= recommendation.status %>
 		</div>
 	</div>
 	<div class="row">
 		<%= recommendation.created_at %>
 		<%= recommendation.comment %>
+		<%= link_to "详情", recommendation_path(recommendation) %>
+		<%= link_to "编辑", edit_recommendation_path(recommendation) %>
 	</div>
 </div>

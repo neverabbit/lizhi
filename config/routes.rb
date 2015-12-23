@@ -41,7 +41,7 @@ Rails.application.routes.draw do
   get 'resume_converter' => 'resume_converters#new'
   post 'resume_converters/convert'
   
-  resources :recommendations, only: [:create, :destroy, :index]
+  resources :recommendations, only: [:create, :destroy, :index, :edit, :update, :show]
   
   get 'users/:id/admin_positions', to: 'users#admin_positions', as: :admin_positions
   

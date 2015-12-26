@@ -1,3 +1,9 @@
-<%= form_for(@position, url: {action: 'online'}, html: {id: "position_switch"}, remote: true) do |f| %>
+<!-- <%= form_for(@position, url: {action: 'online'}, html: {id: "position_switch"}, remote: true) do |f| %>
 	<%= f.submit "上线", class: "btn small" %>
+<% end %> -->
+
+<%= form_tag({controller: 'positions', action: 'online'}, {id: "position_switch"}) do %>
+	
+	<%= hidden_field_tag :id, @position.id %>
+	<%= submit_tag "上线", class: 'submit small' %>
 <% end %>

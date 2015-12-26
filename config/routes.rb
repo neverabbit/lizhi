@@ -31,8 +31,11 @@ Rails.application.routes.draw do
   end
   # get 'positions' => 'positions#index'
   resources :positions
-  patch 'positions/:id/offline', to: 'positions#offline', as: :offline_position
-  patch 'positions/:id/online', to: 'positions#online', as: :online_position
+  post 'positions/offline'
+  post 'positions/online'
+  # post 'positions/:id/offline', to: 'positions#offline', as: :offline_position
+  # post 'positions/:id/online', to: 'positions#online', as: :online_position
+  # resources :positions, member: { offline: :post, online: :post }
   # get 'positions/offline', to 'positions#offline', as: :offline
   # get 'positions/online'
   #

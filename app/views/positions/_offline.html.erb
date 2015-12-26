@@ -1,4 +1,9 @@
-<%= form_for(@position, url: {action: 'offline'}, html: {id: "position_switch", method: :patch}, remote: true) do |f| %>
+<!-- <%= form_for(@position, url: {action: 'offline', id: @position.id}, method: :post, html: {id: "position_switch" }, remote: true) do |f| %>
 	<%= f.submit "下线", class: "btn small" %>
-<% end %>
+<% end %> -->
 
+<%= form_tag({controller: 'positions', action: 'offline'}, {id: "position_switch"}) do %>
+	
+	<%= hidden_field_tag :id, @position.id %>
+	<%= submit_tag "下线", class: 'submit small' %>
+<% end %>

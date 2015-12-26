@@ -53,7 +53,7 @@ class PositionsController < ApplicationController
   
   def index
     # @positions = Position.all
-    @positions = Position.order('updated_at DESC').paginate(page: params[:page])
+    @positions = Position.order('updated_at DESC').where("status LIKE ?", "上线").paginate(page: params[:page])
   end
   
   def destroy

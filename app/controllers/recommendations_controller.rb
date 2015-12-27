@@ -37,7 +37,7 @@ class RecommendationsController < ApplicationController
       recom_params = {recommender_id: @recommender.id, recommendee_id: @recommendee.id, position_id: safe_params[:position_id], comment: safe_params[:comment], status: status_params[0], stage: stage_params[0] }
       @recommendation = Recommendation.new(recom_params)
       if @recommendation.save
-        send_sms(@recommender.phone, @recommender.name, @recommendation.stage)
+        send_sms(@recommendation, 1)
         # flash[:success] = "谢谢推荐!"
         respond_to do |format|
           format.html {redirect_to @recommendation}
@@ -58,11 +58,38 @@ class RecommendationsController < ApplicationController
   end
   
   def update
-    
+    @recommendation = Recommendation.find(params[:id])
+    status_orig = @recommendation.status
+    stage_orig = @recommendation.stage
+    if @recommendation.update_attributes(update_params)
+      
+      if stage_orig != stage_params[6] and @recommendation.stage == stage_params[6]
+        @recommendation.update_attributes(status: status_params[1])
+        # 入职金发放后的短信提醒
+        send_sms(@recommendation, 4) 
+      
+      elsif status_orig == status_params[0] and @recommendation.status == status_params[1]
+        # 推荐关闭后的短信提醒
+        send_sms(@recommendation, 0)
+      elsif stage_orig != stage_params[3] and @recommendation.stage == stage_params[3]
+        # 候选人已面试后的短信提醒
+        send_sms(@recommendation, 2)
+      elsif stage_orig != stage_params[5] and @recommendation.stage == stage_params[5]
+        send_sms(@recommendation, 3)
+      else
+      end
+      redirect_to @recommendation
+    else
+      render 'edit'
+    end
+  end
+  
+  def show
+    @recommendation = Recommendation.find(params[:id])
   end
   
   def index
-    @recommendations = Recommendation.paginate(page: params[:page])
+    @recommendations = Recommendation.order('updated_at DESC').paginate(page: params[:page])
   end
   
   def destroy
@@ -71,5 +98,8 @@ class RecommendationsController < ApplicationController
   private
     def safe_params
       params.permit(:recommender_name, :recommender_phone, :recommendee_name, :recommendee_phone, :comment, :status, :position_id, :stage, :history, :reason)
+    end
+    def update_params
+      params.require(:recommendation).permit(:stage, :status, :comment, :reason)
     end
 end

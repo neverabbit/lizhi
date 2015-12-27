@@ -9,6 +9,7 @@
 next_label: "下一页" %>
 		<div class="positions">
 			<% @positions.each do |position| %>
+				状态：<%= position.status %>
 				<%= render 'positions/list', position: position %>
 			<% end %>
 		</div>

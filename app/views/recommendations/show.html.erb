@@ -1,1 +1,71 @@
-<%= @recommender %>
+<% @tab_title = "推荐详情" %>
+
+<section id="main" class="container">
+	<header>
+		<h2>推荐详情</h2>
+	</header>	
+	
+	<div class="box box_padding">
+		<table>
+			<tr>
+				<th>推荐时间</th>
+				<td><%= @recommendation.created_at %></td>
+			</tr>
+			
+			<tr>
+				<th>候选人</th>
+				<td><%= link_to @recommendation.recommendee.name, user_path(@recommendation.recommendee) %></td>
+			</tr>
+			<tr>
+				<th>候选人电话</th>
+				<td><%= @recommendation.recommendee.phone %></td>
+			</tr>
+			<tr>
+				<th>候选人备注</th>
+				<td><%= @recommendation.comment %></td>
+			</tr>
+			<tr>
+				<th>推荐阶段</th>
+				<td><%= @recommendation.stage %></td>
+			</tr>
+			<tr>
+				<th>推荐状态</th>
+				<td><%= @recommendation.status %></td>
+			</tr>
+			<% if @recommendation.status == status_params[1] %>
+				<tr>
+					<th>关闭理由</th>
+					<td><%= @recommendation.reason %></td>
+				</tr>
+			<% end %>
+			<tr>
+				<td>info</td>
+			</tr>
+			<tr>
+				<th>公司</th>
+				<td><%= link_to @recommendation.position.company.realname, company_path(@recommendation.position.company) %></td>
+				<!-- <%= @recommendation.position.name %> -->
+			</tr>
+			<tr>
+				<th>职位</th>
+				<td><%= link_to @recommendation.position.name, position_path(@recommendation.position) %></td>
+			</tr>
+			<tr>
+				<th>推荐人</th>
+				<td><%= link_to @recommendation.recommender.name, user_path(@recommendation.recommender) %></td>
+			</tr>
+			<tr>
+				<th>推荐人电话</th>
+				<td><%= @recommendation.recommender.phone %></td>
+			</tr>
+			
+		</table>
+		<%= link_to "处理", edit_recommendation_path(@recommendation), class: "button special" %>
+	</div>
+</section>
+		
+
+
+		
+
+		

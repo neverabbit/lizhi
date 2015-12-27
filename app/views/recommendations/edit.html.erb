@@ -6,6 +6,8 @@
 	</header>
 	
 	<div class="box p_detail box_padding">
-		<%= render 'edit_form' %>
+		<%= form_for(@recommendation) do |f| %>
+			<%= render 'recommendations/edit_form', f: f %>
+		<% end %>
 	</div>
 </section>

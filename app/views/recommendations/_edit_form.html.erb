@@ -1,0 +1,22 @@
+<%= render 'shared/error_messages', object: f.object %>
+<div class="row">
+	<div class="3u 12u(mobilep)">
+		<%= f.label :stage, "阶段" %>
+		<%= f.select :stage, options_for_select(stage_params, @recommendation.stage), class: "form-control" %>
+	</div>
+		
+	<div class="3u 12u(mobilep)">	
+		<%= f.label :status, "状态" %>
+		<%= f.select :status, options_for_select(status_params, @recommendation.status), class: "form-control" %>
+	</div>
+	
+	<div class="6u 12u(mobilep)">
+		<%= f.label :reason, "理由（关闭时）" %>
+		<%= f.text_field :reason, class: "form-control" %>
+	</div>
+</div>
+<%= f.label :comment, "备注" %>
+<%= f.text_area :comment, class: "form-control" %>
+
+
+<%= submit_tag "提交", class: 'fit special' %>

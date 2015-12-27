@@ -80,7 +80,7 @@
 	
 	<div class="3u 12u(mobilep)">
 		<%= f.label :consultant, "负责顾问" %>
-		<%= f.select :consultant, consultant_list, class: "form-control" %>
+		<%= f.select :consultant, options_for_select(consultant_list, current_user.name), class: "form-control" %>
 	</div>
 </div>
 

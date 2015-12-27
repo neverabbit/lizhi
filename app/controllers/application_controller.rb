@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
   
   include SessionsHelper
   include RecommendationsHelper
+  include UsersHelper
   
   def logged_in_user
     unless logged_in?

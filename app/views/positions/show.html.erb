@@ -96,6 +96,15 @@
 					
 			</div>
 		</div>
+		
+		<!-- <div class="row"> -->
+		<% if logged_in? && current_user.name == @position.consultant %>
+			<b>推荐列表</b>
+			<% @position.recommendations.each do |r| %>
+				<%= render 'recommendations/list', recommendation: r %>
+			<% end %>
+		<% end %>
+		<!-- </div> -->
 	</div>
 </section>
 <!-- <script type='text/javascript' src='http://api.map.baidu.com/api?v=2.0&ak=fCbQrRfCxwoNGniE995RWGdu'></script> -->

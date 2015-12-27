@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  include UsersHelper
   
   has_many :active_recommendations, class_name: "Recommendation", foreign_key: "recommender_id", dependent: :destroy
   has_many :passive_recommendations, class_name: "Recommendation", foreign_key: "recommended_id", dependent: :destroy
@@ -12,6 +13,8 @@ class User < ActiveRecord::Base
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, length: { maximum: 255 }, allow_blank: true, 
                           format: { with: VALID_EMAIL_REGEX }
+                          
+  validates :gender, presence: { message: '请选择性别！' }, inclusion: { in: lambda { |user|  user.gender_params }, message: '请选择性别！' }
                           
   has_secure_password
   # validates :password, length: { minimum: 6 }, allow_blank: true

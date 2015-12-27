@@ -27,6 +27,9 @@ module Leadsto
     
     config.wechat_token = 'vincentinlz2015'
     
+    config.time_zone = 'Beijing'
+    config.active_record.default_timezone = :local
+    
     config.before_configuration do
       env_file = File.join(Rails.root, 'config', 'weixin_env.yml')
       YAML.load(File.open(env_file)).each do |key, value|

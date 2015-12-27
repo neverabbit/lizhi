@@ -66,6 +66,12 @@ class PositionsController < ApplicationController
   def offline
     @position = Position.find(params[:id])
     @position.update_attributes(status: "下线")
+    @position.recommendations.each do |r|
+      if r.status == status_params[0]
+        r.update_attributes(status: status_params[1], reason: "职位已关闭")
+        send_sms(r, 0)
+      end
+    end
     respond_to do |format|
       format.html { redirect_to @position }
       format.js 
@@ -75,6 +81,9 @@ class PositionsController < ApplicationController
   def online
     @position = Position.find(params[:id])
     @position.update_attributes(status: "上线")
+    @position.recommendations.each do |f|
+      f.update_attributes(status: status[0], reason: "职位已关闭")
+    end
     respond_to do |format|
       format.html { redirect_to @position }
       format.js 

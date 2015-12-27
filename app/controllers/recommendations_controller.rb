@@ -14,7 +14,7 @@ class RecommendationsController < ApplicationController
       # @recommender_params = recommender_params
       # @safe_params = params
       unless @recommender = User.find_by(phone: safe_params[:recommender_phone])
-        @recommender = User.new({name: safe_params[:recommender_name], phone: safe_params[:recommender_phone], password: safe_params[:recommender_phone][6..11], password_confirmation: safe_params[:recommender_phone][6..11]})
+        @recommender = User.new({name: safe_params[:recommender_name], phone: safe_params[:recommender_phone], gender: safe_params[:recommendee_gender], password: safe_params[:recommender_phone][6..11], password_confirmation: safe_params[:recommender_phone][6..11]})
         unless @recommender.save
           @recommendation = @recommender
           respond_to do |format|
@@ -24,7 +24,7 @@ class RecommendationsController < ApplicationController
         end
       end
       unless @recommendee = User.find_by(phone: safe_params[:recommendee_phone])
-        @recommendee = User.new({name: safe_params[:recommendee_name], phone: safe_params[:recommendee_phone], password: safe_params[:recommendee_phone][6..11], password_confirmation: safe_params[:recommendee_phone][6..11]})
+        @recommendee = User.new({name: safe_params[:recommendee_name], phone: safe_params[:recommendee_phone], gender: safe_params[:recommendee_gender], password: safe_params[:recommendee_phone][6..11], password_confirmation: safe_params[:recommendee_phone][6..11]})
         unless @recommendee.save
           @recommendation = @recommendee
           # @recommendation.errors.messages.delete(:password) # error
@@ -64,7 +64,7 @@ class RecommendationsController < ApplicationController
     if @recommendation.update_attributes(update_params)
       
       if stage_orig != stage_params[6] and @recommendation.stage == stage_params[6]
-        @recommendation.update_attributes(status: status_params[1])
+        @recommendation.update_attributes(status: status_params[1], reason: @recommendation.stage)
         # 入职金发放后的短信提醒
         send_sms(@recommendation, 4) 
       
@@ -97,7 +97,7 @@ class RecommendationsController < ApplicationController
   
   private
     def safe_params
-      params.permit(:recommender_name, :recommender_phone, :recommendee_name, :recommendee_phone, :comment, :status, :position_id, :stage, :history, :reason)
+      params.permit(:recommender_name, :recommender_phone, :recommendee_name, :recommendee_phone, :comment, :status, :position_id, :stage, :history, :reason, :recommender_gender, :recommendee_gender)
     end
     def update_params
       params.require(:recommendation).permit(:stage, :status, :comment, :reason)

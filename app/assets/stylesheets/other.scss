@@ -454,6 +454,36 @@ ul.pagination .active a {
 	margin-bottom: 5px;
 }
 
+#recommender_name, #recommendee_name {
+	width: 70%;
+	display: inline-block;
+}
+
+#recommender_gender, #recommendee_gender {
+	width: 29%;
+	display: inline-block;
+	float: none;
+	
+//	text-align: center;
+}
+
+.select-wrapper::before {
+	color: #999;
+	line-height: 1.5em;
+}
+
+.select-wrapper {
+	color: #999;
+	display: inline;
+}
+
+//.gender_button {
+//	display: inline !important;
+//	float: none !important;
+//	z-index: 999 !important;
+////	float: right !important;
+//}
+
 .logo_area {
 	display: block;
 	text-align: right;

@@ -4,12 +4,23 @@
 	
 	<% if !logged_in? %>
 		<%= text_field_tag :recommender_name, nil, id: 'recommender_name', placeholder: '您的称呼 | 必填'  %>
+		<!-- <%= radio_button_tag :recommender_gender, gender_params[0], false, class: 'gender_button' %>
+		<%= label_tag :recommender_gender, gender_params[0] %>
+		<%= radio_button_tag :recommender_gender, gender_params[1], false, class: 'gender_button' %>
+		<%= label_tag :recommender_gender, gender_params[1] %> -->
+		<div class="select-wrapper">	
+			<%= select_tag :recommender_gender, options_for_select(['性别'].concat(gender_params), '性别') %>
+		</div>
 		<!-- required: true, oninvalid: "this.setCustomValidity('请输入您的称呼')", oninput: "setCustomValidity('')" -->
 
 		<%= text_field_tag :recommender_phone, nil, id: 'recommender_phone', placeholder: '您的手机 | 必填' %>
 	<% end %>
 
 	<%= text_field_tag :recommendee_name, nil, id: 'recommendee_name', placeholder: '对方姓名(推荐自己也有入职金哦) | 必填' %>
+	
+	<div class="select-wrapper">	
+		<%= select_tag :recommendee_gender, options_for_select(['性别'].concat(gender_params), '性别') %>
+	</div>
 
 	<%= text_field_tag :recommendee_phone, nil, id: 'recommendee_phone', placeholder: '对方手机 | 必填' %>
 

@@ -11,23 +11,28 @@ module RecommendationsHelper
   end
   
   def send_sms(recommendation, step)
-    recommender_name = recommendation.recommender.name
-    recommendee_name = recommendation.recommendee.name
-    company = recommendation.position.company.realname
+    recommender = recommendation.recommender.name
+    recommender_name = recommender.length > 5 ? recommender[0, 3]+'..' : recommender
+    recommendee = recommendation.recommendee.name
+    recommendee_name = recommendee.length > 5 ? recommendee[0, 3]+'..' : recommendee
+    company = recommendation.position.company.name
+    company_name = company.length > 15 ? company[0, 13]+'..' : company
+    position = recommendation.position.name
+    position_name = position.length > 10 ? position[0,8]+'..' : position
     url = "http://dx.ipyy.net/sms.aspx"
     account = "xm000081"
     signature = "【荔枝咨询】"
     case step
       # 推荐关闭
-      when 0 then content = "#{signature} #{recommender_name}，由于“#{recommendation.reason}”，您向“#{company}”推荐的“#{recommendee_name}”没有机会入职，我们看看其它适合的机会，如果能顺利入职也会有一笔感谢金给到您。" 
+      when 0 then content = "#{signature} 因#{company_name}的#{position_name}已关闭，您推荐的#{recommendee_name}，没有机会进入下一环节，我们会向其推荐其他机会，若其入职其他岗位，您也会获得相应的礼金。点击http://t.cn/R46bU2J马上推荐。"
       # 提交推荐
-      when 1 then content = "#{signature} #{recommender_name}，推荐信息已收到，你为他争取的机会，也许会改变一生，接下来，是我们的服务时间，推荐进展会短信通知你，请注意查收。"
+      when 1 then content = "#{signature} #{company_name}招聘负责人已收到您的推荐，#{recommendee_name}接下来的进展，将实时短信告知，加入荔枝朋友圈，随时看到好机会，打开微信添加运营萌妹子lizzysister为好友即可。"
       # 进入面试
-      when 2 then content = "#{signature} #{recommender_name}2，推荐信息已收到，你为他争取的机会，也许会改变一生，接下来，是我们的服务时间，推荐进展会短信通知你，请注意查收。"
+      when 2 then content = "#{signature} 捷报？喜报！反正 #{recommendee_name}获得了#{position_name}的面试机会，眼看着礼金就要到手了，撒花鼓掌，继续搜罗身边优秀的小伙伴，点击http://t.cn/R46bU2J 马上推荐！"
       # 入职
-      when 3 then content = "#{signature} #{recommender_name}3，推荐信息已收到，你为他争取的机会，也许会改变一生，接下来，是我们的服务时间，推荐进展会短信通知你，请注意查收。"
+      when 3 then content = "#{signature} 荔枝要告诉你一个严肃的消息，咳咳…#{recommendee_name}已经入职#{company_name}了，一笔7K的奖金即将在10个工作日后转出，成功率99%，快去完善收款信息吧。"
       # 入职金已发放
-      when 4 then content = "#{signature} #{recommender_name}4，推荐信息已收到，你为他争取的机会，也许会改变一生，接下来，是我们的服务时间，推荐进展会短信通知你，请注意查收。"
+      when 4 then content = "#{signature} 因你的推荐，#{recommendee_name}已经成功入职#{company_name}，你给予他的是一份认同，给予荔枝的是一份信任，@K代表了我们的绵薄谢意，请笑纳，礼金已转，注意查收。"
     end
     puts content
     mobile = recommendation.recommender.phone

@@ -317,6 +317,7 @@ DEPENDENCIES
   font-awesome-rails
   jbuilder (~> 2.0)
   jquery-rails
+  mini_magick
   minitest (= 5.8.1)
   mysql2 (~> 0.3.18)
   net-ssh (= 2.9.2)

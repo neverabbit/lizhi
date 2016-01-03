@@ -1,13 +1,13 @@
-						<% recommendations = position.recommendations %>
+						<% recommendations = position.recommendations.order("created_at") %>
 						<% if recommendations.length <= 3 %>
 							<% recommendations.each do |r| %>
-								<p>"<%= r.recommender.name[0] %>先生/女士"于 <%= r.created_at.to_date %> 推荐"<%= r.recommendee.name[0] %>先生/女士"<p>
+								<p><b><%= r.recommender.name[0] %><%= r.recommender.gender == '女' ? '女士' : '先生' %></b> 于 <%= r.created_at.to_date %> 推荐 <b><%= r.recommendee.name[0] %><%= r.recommendee.gender == '女' ? '女士' : '先生' %></b></p>
 							<% end %>
 						
 						<% else %>
 							...
 							<% recommendations[-3, 3].each do |r| %>
-								<p>"<%= r.recommender.name[0] %>先生/女士" 于 <%= r.created_at.to_date %> 推荐 "<%= r.recommendee.name[0] %>先生/女士"<p>
+								<p><b><%= r.recommender.name[0] %><%= r.recommender.gender == '女' ? '女士' : '先生' %></b> 于 <%= r.created_at.to_date %> 推荐 <b><%= r.recommendee.name[0] %><%= r.recommendee.gender == '女' ? '女士' : '先生' %></b></p>
 							<% end %>
 						
 						<% end %>

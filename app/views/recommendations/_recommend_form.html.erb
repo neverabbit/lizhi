@@ -25,6 +25,7 @@
 	<%= text_field_tag :recommendee_phone, nil, id: 'recommendee_phone', placeholder: '对方手机 | 必填' %>
 
 	<%= text_area_tag :comment, nil, id: 'comment', placeholder: '请填写推荐理由或候选人的关键词 | 必填' %>
+	<p><b>P.S. 您的信息将不会被透露给候选人，请放心推荐！</b></p>
 	<!-- <div class="row">
 		<div class="6u 12u(narrower)">
 			<%= button_tag "取消", class: 'button fit' %>
@@ -52,6 +53,12 @@
 			return false;
 		}
 		
+		if ($("#recommender_gender").val() == "性别") {
+			alert("请选择性别！");
+			$("#recommender_gender").focus();
+			return false;
+		}
+		
 		if ($("#recommender_phone").val() == "") {
 			alert("手机号码不能为空！");
 			//$("#moileMsg").html("<font color='red'>手机号码不能为空！</font>");
@@ -66,6 +73,11 @@
 			return false;
 		}
 		
+		if ($("#recommendee_gender").val() == "性别") {
+			alert("请选择性别！");
+			$("#recommendee_gender").focus();
+			return false;
+		}
 
 		if (!$("#recommender_phone").val().match(/^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1})|(17[0-9]{1})|(14[0-9]{1}))+\d{8})$/)) {
 			alert("手机号码格式不正确！");
@@ -88,6 +100,7 @@
 			return false;
 		}
 		
+		
 		if ($("#comment").val() == "" ) {
 			
 			alert("请填写推荐理由或候选人的关键词！");
@@ -95,6 +108,8 @@
 			$("#comment").focus();
 			return false;
 		}
+		
+		alert("感谢推荐！");
 		// return true;
 	} 
 </script>

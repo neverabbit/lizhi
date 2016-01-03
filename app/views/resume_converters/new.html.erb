@@ -6,8 +6,8 @@
 	</header>
 	<div class="box box_padding">
 		<%= form_tag({controller: 'resume_converters', action: 'convert'}, multipart: true) do %>
-			
-			<%= label_tag "上传简历（猎聘／htm格式）" %>
+	
+			<%= label_tag "上传简历（猎聘／htm格式，保存简历时请选择“网页，全部”）" %>
 			<%= file_field_tag :resume_htm %>
 			<br><br>
 			<%= submit_tag "转换简历", class: 'submit' %>

@@ -8,6 +8,7 @@
 		<%= will_paginate  previous_label: "上一页",
 next_label: "下一页" %>
 		<div class="positions">
+			<%= render 'positions/search' %>
 			<% @positions.each do |position| %>
 				<%= render 'list', position: position %>
 			<% end %>

@@ -37,7 +37,7 @@ class RecommendationsController < ApplicationController
       recom_params = {recommender_id: @recommender.id, recommendee_id: @recommendee.id, position_id: safe_params[:position_id], comment: safe_params[:comment], status: status_params[0], stage: stage_params[0] }
       @recommendation = Recommendation.new(recom_params)
       if @recommendation.save
-        send_sms(@recommendation, 1)／／／／／／／／／／／／／／／／／／／／／／／／／／／／
+        send_sms(@recommendation, 1)
         # flash[:success] = "谢谢推荐!"
         respond_to do |format|
           format.html {redirect_to @recommendation}

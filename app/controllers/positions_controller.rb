@@ -90,6 +90,22 @@ class PositionsController < ApplicationController
     end
   end
   
+  def search
+    # store_location
+    if params[:search_position].present?
+      search_name = params[:search_position]
+      redirect_to action: :results, search_position: search_name
+    else
+      redirect_to '/positions'
+      # action: :index
+    end
+  end
+  
+  def results
+    search_name = params[:search_position] 
+    @positions = Position.order('created_at DESC').where("LOWER(name) LIKE ?", "%#{search_name.downcase}%").paginate(page: params[:page])
+  end
+  
   private
     def position_params
       params.require(:position).permit(:name, :bonus, :salary_top, :salary_bottom, :city, :district, :address, :department, :report_to, :education, :experience, :age_top, :age_bottom, :keyword, :demanding, :recommended, :interviewee, :entry, :responsibility, :requirement, :consultant, :status, :weixin_title, :weixin_desc)

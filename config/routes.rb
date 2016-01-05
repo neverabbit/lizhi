@@ -33,6 +33,8 @@ Rails.application.routes.draw do
   resources :positions
   post 'positions/offline'
   post 'positions/online'
+  post 'positions/search'# , to: 'positions#search'
+  get 'positions/results/:search_position', to: 'positions#results'
   # post 'positions/:id/offline', to: 'positions#offline', as: :offline_position
   # post 'positions/:id/online', to: 'positions#online', as: :online_position
   # resources :positions, member: { offline: :post, online: :post }

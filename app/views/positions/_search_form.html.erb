@@ -1,0 +1,20 @@
+<%= form_tag({controller: 'positions', action: 'search'}, {id: "position_search", onSubmit: "return checkSubmitMobil()"}) do %>
+	<div class="row">
+		<div class="4u 8u(mobilep)">
+			<%= text_field_tag 'search_position', nil, placeholder: "搜索职位名" %>
+		</div>
+		<div class="2u 4u(mobilep)">
+			<%= submit_tag "搜索", class: 'submit button fit' %>
+		</div>
+	</div>
+<% end %>
+<script>
+	function checkSubmitMobil() {
+		if ($("#search_position").val() == "") {
+			alert("请输入搜索内容！");
+			//$("#moileMsg").html("<font color='red'>手机号码不能为空！</font>");
+			$("#search_position").focus();
+			return false;
+		}
+	}
+</script>

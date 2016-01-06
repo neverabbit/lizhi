@@ -36,6 +36,8 @@ class PositionsController < ApplicationController
   def update
     @position = Position.find(params[:id])
     if @position.update_attributes(position_params)
+      @position[:remaining] = @position[:demanding] - @position[:entry]
+      @position.save
       redirect_to @position
     else
       render 'edit'

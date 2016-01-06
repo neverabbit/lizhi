@@ -4,6 +4,9 @@
 <% @share_desc = @position.weixin_desc %>
 <% @share_img = image_url(@company.logo_file) %>
 
+<% interviewee = @position.recommendations.select{ |r| stage_params[3..6].include?(r.stage) }.size %>
+<% entry = @position.recommendations.select{ |r| stage_params[5..6].include?(r.stage) }.size %>
+
 
 <section id="main" class="container">
 	<header>
@@ -29,9 +32,9 @@
 				<div id="status">
 					<table class="">
 						<tr>
-							<td><%= @position.recommended %> 推荐</td>
-							<td><%= @position.interviewee %> 面试</td>
-							<td><%= @position.entry %> 入职</td>
+							<td><%= @position.recommendations.count %> 推荐</td>
+							<td><%= interviewee %> 面试</td>
+							<td><%= entry %> 入职</td>
 							<td><%= @position.remaining %> 空岗</td>
 						</tr> 
 					</table>

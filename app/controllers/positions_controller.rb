@@ -83,9 +83,9 @@ class PositionsController < ApplicationController
   def online
     @position = Position.find(params[:id])
     @position.update_attributes(status: "上线")
-    @position.recommendations.each do |f|
-      f.update_attributes(status: status[0], reason: "职位已关闭")
-    end
+    # @position.recommendations.each do |f|
+#       f.update_attributes(status: status[0], reason: "职位已关闭")
+#     end
     respond_to do |format|
       format.html { redirect_to @position }
       format.js 
